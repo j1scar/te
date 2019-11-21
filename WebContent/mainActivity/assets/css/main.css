@@ -2206,7 +2206,7 @@
 	textarea {
 		padding: 0.75em 1em;
 	}
-
+	
 	input[type="checkbox"],
 	input[type="radio"] {
 		-moz-appearance: none;
@@ -2220,7 +2220,7 @@
 		width: 1em;
 		z-index: -1;
 	}
-
+		
 		input[type="checkbox"] + label,
 		input[type="radio"] + label {
 			text-decoration: none;
@@ -2257,7 +2257,7 @@
 				top: 0;
 				width: 1.65em;
 			}
-
+	
 		input[type="checkbox"]:checked + label:before,
 		input[type="radio"]:checked + label:before {
 			content: '\f00c';
@@ -2294,16 +2294,16 @@
 	label:not(.modalBlack) {
 		color: #ffffff;
 	}
-
+	
 	input[type="text"],
 	input[type="password"],
 	input[type="email"],
 	select,
 	textarea {
 		background: rgba(255, 255, 255, 0.075);
-		border-color: rgba(255, 255, 255, 0.15);
+		border-color: #ada4a4;
 	}
-
+	
 		input[type="text"]:focus,
 		input[type="password"]:focus,
 		input[type="email"]:focus,
@@ -2316,18 +2316,18 @@
 	.select-wrapper:before {
 		color: rgba(255, 255, 255, 0.15);
 	}
-
+	
 	input[type="checkbox"] + label,
 	input[type="radio"] + label {
 		color: #c0c2c4;
 	}
-
+	/*
 		input[type="checkbox"] + label:before,
 		input[type="radio"] + label:before {
 			background: rgba(255, 255, 255, 0.075);
 			border-color: rgba(255, 255, 255, 0.15);
 		}
-
+*/
 	input[type="checkbox"]:checked + label:before,
 	input[type="radio"]:checked + label:before {
 		background-color: #062038;
@@ -2340,7 +2340,7 @@
 		border-color: #062038;
 		box-shadow: 0 0 0 1px #062038;
 	}
-
+	
 	::-webkit-input-placeholder {
 		color: #676d71 !important;
 	}
@@ -3772,7 +3772,13 @@
 	.modalBlack {
 		color : black;
 	}
-	
+	.modalBoxColor {
+		background: rgba(8, 8, 8, 0.075);
+   		 border-color: rgba(10, 10, 10, 0.15);
+	}
+	.hidden {
+		visibility : hidden;
+	}
 /* Main */
 
 /* Footer */

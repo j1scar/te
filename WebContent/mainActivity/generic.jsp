@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
 <!DOCTYPE HTML>
 <!--
 	Broadcast by TEMPLATED
@@ -22,8 +24,8 @@
 		<!-- Nav -->
 			<nav id="menu">
 				<ul class="links">
-					<li><a href="index.html">Home</a></li>
-					<li><a href="generic.html">Generic</a></li>
+					<li><a href="index.jsp">Home</a></li>
+					<li><a href="generic.jsp">Generic</a></li>
 					<li><a href="elements.html">Elements</a></li>
 				</ul>
 			</nav>
@@ -71,7 +73,7 @@
 									<p class="caption">
 										Cras eget lacus sed mauris scelerisque tincidunt
 									</p>
-									<a href="generic.html" class="link"><span>Click Me</span></a>
+									<a href="generic.jsp" class="link"><span>Click Me</span></a>
 								</div>
 								<div class="video col">
 									<div class="image fit">
@@ -83,7 +85,7 @@
 									<p class="caption">
 										Vivamus vulputate lacus non massa auctor lobortis
 									</p>
-									<a href="generic.html" class="link"><span>Click Me</span></a>
+									<a href="generic.jsp" class="link"><span>Click Me</span></a>
 								</div>
 								<div class="video col">
 									<div class="image fit">
@@ -95,7 +97,7 @@
 									<p class="caption">
 										Nam eu nisi non ante sodales interdum a vitae neque
 									</p>
-									<a href="generic.html" class="link"><span>Click Me</span></a>
+									<a href="generic.jsp" class="link"><span>Click Me</span></a>
 								</div>
 							</div>
 					</div>

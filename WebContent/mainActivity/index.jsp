@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
 <!DOCTYPE HTML>
 <html>
    <head>
@@ -5,24 +7,22 @@
       <meta charset="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <link rel="stylesheet" href="assets/css/main.css" />
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-
-
-
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
    </head>
    <body>
-
       <!-- Header -->
          <header id="header">
             <h1><a href="#">MFE <span>by</span></a></h1>
+            <div>
             <button type ="button" class = "btn btn-secondary"><span class = "glyphicon glyphicon-tasks" aria-hidden="true"></span></button>
-            <button type ="button" class = "btn btn-secondary"><span class = "glyphicon glyphicon-search" aria-hidden="true"></span></button>
-            <button type ="button" class = "btn btn-secondary" data-toggle="modal" data-target="#accountModal"><span class = "glyphicon glyphicon-user" aria-hidden="true"></span></button>
+            <!--  ∞Àªˆ ≈ÿΩ∫∆Æ -->
+        	 <input type="text" id ="search_Text">
+            <button id = "search_Button" type ="button" class = "btn btn-secondary" data-toggle="collapse" data-target ="#search_Text"><span class = "glyphicon glyphicon-search" aria-hidden="true"></span></button>
+            <button type ="button" class = "btn btn-secondary" data-toggle="modal" data-target="#login_Modal"><span class = "glyphicon glyphicon-user" aria-hidden="true"></span></button>
             <a href="#menu">Menu</a>
+            </div>
          </header>
 
       <!-- Nav -->
@@ -30,19 +30,19 @@
          <nav id="menu">
          	
             <ul class="links">
-               <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">---ÎπÑÌöåÏõêÌïúÌÖå Î≥¥Ïó¨ÏßÄÎäî Î∂ÄÎ∂Ñ--- </a></li>
-               <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Î°úÍ∑∏Ïù∏1 </a></li>
-               <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">ÌöåÏõêÍ∞ÄÏûÖ</a></li>
-               <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Ïª§ÎÆ§ÎãàÌã∞</a></li>
-               <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Í≥†Í∞ùÏÑºÌÑ∞ </a></li>
-               <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">------ÌöåÏõê --------</a></li>
-               <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">ÎßàÏù¥ÌéòÏù¥ÏßÄ </a></li>
-               <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Ìã∞ÏºìÍ¥ÄÎ¶¨</a></li>
-               <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Ïû•Î∞îÍµ¨Îãà</a></li>
-               <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Ï∞úÎ™©Î°ù </a></li>
-               <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Ïª§ÎÆ§ÎãàÌã∞</a></li>
-               <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Í≥†Í∞ùÏÑºÌÑ∞ </a></li>
-               <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Î°úÍ∑∏ÏïÑÏõÉ </a></li>
+               <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">---∫Ò»∏ø¯«—≈◊ ∫∏ø©¡ˆ¥¬ ∫Œ∫–--- </a></li>
+               <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">∑Œ±◊¿Œ1 </a></li>
+               <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">»∏ø¯∞°¿‘</a></li>
+               <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">ƒøπ¬¥œ∆º</a></li>
+               <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">∞Ì∞¥ºæ≈Õ </a></li>
+               <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">------»∏ø¯ --------</a></li>
+               <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">∏∂¿Ã∆‰¿Ã¡ˆ </a></li>
+               <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">∆ºƒœ∞¸∏Æ</a></li>
+               <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">¿ÂπŸ±∏¥œ</a></li>
+               <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">¬Ú∏Ò∑œ </a></li>
+               <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">ƒøπ¬¥œ∆º</a></li>
+               <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">∞Ì∞¥ºæ≈Õ </a></li>
+               <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">∑Œ±◊æ∆øÙ </a></li>
             </ul>
          </nav>
 
@@ -52,11 +52,11 @@
             its extension (eg. images/banner). Your video must be available in both .mp4 and .webm
             formats to work correctly.
          -->
-            <section id="banner" data-video="../images/banner">   <!-- Îã§Î•∏ Ïù¥ÎØ∏ÏßÄ ÎÑ£Í∏∞ -->
+            <section id="banner" data-video="../images/banner">   <!-- ¥Ÿ∏• ¿ÃπÃ¡ˆ ≥÷±‚ -->
                <div class="inner">
                   <header>
                      <h1>Music For Everyone</h1>
-                     <p>Îã§ÏñëÌïú Í≥µÏó∞ÏùÑ Ï¶êÍ∏∞ÏÑ∏Ïöî~</p>
+                     <p>¥ŸæÁ«— ∞¯ø¨¿ª ¡Ò±‚ººø‰~</p>
                   </header>
                   <a href="#main" class="button big alt scrolly">Start</a>
                </div>
@@ -70,7 +70,7 @@
             <section class="wrapper style1">
                <div class="inner">
                   <header class="align-center">
-                     <h2>ÎßûÏ∂§Ìòï ÏΩòÏÑúÌä∏</h2>
+                     <h2>∏¬√„«¸ ƒ‹º≠∆Æ</h2>
                   </header>
                   <!-- 2 Column Video Section -->
                      <div class="flex flex-2">
@@ -82,9 +82,9 @@
                               </div>
                            </div>
                            <p class="caption">
-                              ÏΩòÏÑúÌä∏1
+                              ƒ‹º≠∆Æ1
                            </p>
-                           <a href="generic.html" class="link"><span>Click Me</span></a>
+                           <a href="generic.jsp" class="link"><span>Click Me</span></a>
                         </div>
                         <div class="video col">
                            <div class="image fit">
@@ -94,9 +94,9 @@
                               </div>
                            </div>
                            <p class="caption">
-                              ÏΩòÏÑúÌä∏2
+                              ƒ‹º≠∆Æ2
                            </p>
-                           <a href="generic.html" class="link"><span>Click Me</span></a>
+                           <a href="generic.jsp" class="link"><span>Click Me</span></a>
                         </div>
                         <div class="video col">
                            <div class="image fit">
@@ -106,9 +106,9 @@
                               </div>
                            </div>
                            <p class="caption">
-                              ÏΩòÏÑúÌä∏3
+                              ƒ‹º≠∆Æ3
                            </p>
-                           <a href="generic.html" class="link"><span>Click Me</span></a>
+                           <a href="generic.jsp" class="link"><span>Click Me</span></a>
                         </div>
                         <div class="video col">
                            <div class="image fit">
@@ -118,9 +118,9 @@
                               </div>
                            </div>
                            <p class="caption">
-                              ÏΩòÏÑúÌä∏4
+                              ƒ‹º≠∆Æ4
                            </p>
-                           <a href="generic.html" class="link"><span>Click Me</span></a>
+                           <a href="generic.jsp" class="link"><span>Click Me</span></a>
                         </div>
                      </div>
                </div>
@@ -130,14 +130,14 @@
             <section class="wrapper style2">
                <div class="inner">
                   <header>
-                     <h2>Ï∂îÏ≤úÍ≥µÏó∞</h2>
+                     <h2>√ﬂ√µ∞¯ø¨</h2>
                   </header>
                   <!-- Tabbed Video Section -->
                      <div class="flex flex-tabs">
                         <ul class="tab-list">
-                           <li><a href="#" data-tab="tab-1" class="active">ÎùΩ</a></li>
-                           <li><a href="#" data-tab="tab-2">Î∞úÎùºÎìú</a></li>
-                           <li><a href="#" data-tab="tab-3">Ïû¨Ï¶à</a></li>
+                           <li><a href="#" data-tab="tab-1" class="active">∂Ù</a></li>
+                           <li><a href="#" data-tab="tab-2">πﬂ∂ÛµÂ</a></li>
+                           <li><a href="#" data-tab="tab-3">¿Á¡Ó</a></li>
                         </ul>
                         <div class="tabs">
 
@@ -151,7 +151,7 @@
                                              <div class="icon fa-play"></div>
                                           </div>
                                        </div>
-                                       <a href="generic.html" class="link"><span>Click Me</span></a>
+                                       <a href="generic.jsp" class="link"><span>Click Me</span></a>
                                     </div>
                                  <!-- Video Thumbnail -->
                                     <div class="video col">
@@ -161,7 +161,7 @@
                                              <div class="icon fa-play"></div>
                                           </div>
                                        </div>
-                                       <a href="generic.html" class="link"><span>Click Me</span></a>
+                                       <a href="generic.jsp" class="link"><span>Click Me</span></a>
                                     </div>
                                  <!-- Video Thumbnail -->
                                     <div class="video col">
@@ -171,7 +171,7 @@
                                              <div class="icon fa-play"></div>
                                           </div>
                                        </div>
-                                       <a href="generic.html" class="link"><span>Click Me</span></a>
+                                       <a href="generic.jsp" class="link"><span>Click Me</span></a>
                                     </div>
                                  <!-- Video Thumbnail -->
                                     <div class="video col">
@@ -181,7 +181,7 @@
                                              <div class="icon fa-play"></div>
                                           </div>
                                        </div>
-                                       <a href="generic.html" class="link"><span>Click Me</span></a>
+                                       <a href="generic.jsp" class="link"><span>Click Me</span></a>
                                     </div>
                                  <!-- Video Thumbnail -->
                                     <div class="video col">
@@ -191,7 +191,7 @@
                                              <div class="icon fa-play"></div>
                                           </div>
                                        </div>
-                                       <a href="generic.html" class="link"><span>Click Me</span></a>
+                                       <a href="generic.jsp" class="link"><span>Click Me</span></a>
                                     </div>
                                  <!-- Video Thumbnail -->
                                     <div class="video col">
@@ -201,7 +201,7 @@
                                              <div class="icon fa-play"></div>
                                           </div>
                                        </div>
-                                       <a href="generic.html" class="link"><span>Click Me</span></a>
+                                       <a href="generic.jsp" class="link"><span>Click Me</span></a>
                                     </div>
                               </div>
 
@@ -215,7 +215,7 @@
                                              <div class="icon fa-play"></div>
                                           </div>
                                        </div>
-                                       <a href="generic.html" class="link"><span>Click Me</span></a>
+                                       <a href="generic.jsp" class="link"><span>Click Me</span></a>
                                     </div>
                                  <!-- Video Thumbnail -->
                                     <div class="video col">
@@ -225,7 +225,7 @@
                                              <div class="icon fa-play"></div>
                                           </div>
                                        </div>
-                                       <a href="generic.html" class="link"><span>Click Me</span></a>
+                                       <a href="generic.jsp" class="link"><span>Click Me</span></a>
                                     </div>
                                  <!-- Video Thumbnail -->
                                     <div class="video col">
@@ -235,7 +235,7 @@
                                              <div class="icon fa-play"></div>
                                           </div>
                                        </div>
-                                       <a href="generic.html" class="link"><span>Click Me</span></a>
+                                       <a href="generic.jsp" class="link"><span>Click Me</span></a>
                                     </div>
                                  <!-- Video Thumbnail -->
                                     <div class="video col">
@@ -245,7 +245,7 @@
                                              <div class="icon fa-play"></div>
                                           </div>
                                        </div>
-                                       <a href="generic.html" class="link"><span>Click Me</span></a>
+                                       <a href="generic.jsp" class="link"><span>Click Me</span></a>
                                     </div>
                                  <!-- Video Thumbnail -->
                                     <div class="video col">
@@ -255,7 +255,7 @@
                                              <div class="icon fa-play"></div>
                                           </div>
                                        </div>
-                                       <a href="generic.html" class="link"><span>Click Me</span></a>
+                                       <a href="generic.jsp" class="link"><span>Click Me</span></a>
                                     </div>
                                  <!-- Video Thumbnail -->
                                     <div class="video col">
@@ -265,7 +265,7 @@
                                              <div class="icon fa-play"></div>
                                           </div>
                                        </div>
-                                       <a href="generic.html" class="link"><span>Click Me</span></a>
+                                       <a href="generic.jsp" class="link"><span>Click Me</span></a>
                                     </div>
                               </div>
 
@@ -279,7 +279,7 @@
                                              <div class="icon fa-play"></div>
                                           </div>
                                        </div>
-                                       <a href="generic.html" class="link"><span>Click Me</span></a>
+                                       <a href="generic.jsp" class="link"><span>Click Me</span></a>
                                     </div>
                                  <!-- Video Thumbnail -->
                                     <div class="video col">
@@ -289,7 +289,7 @@
                                              <div class="icon fa-play"></div>
                                           </div>
                                        </div>
-                                       <a href="generic.html" class="link"><span>Click Me</span></a>
+                                       <a href="generic.jsp" class="link"><span>Click Me</span></a>
                                     </div>
                                  <!-- Video Thumbnail -->
                                     <div class="video col">
@@ -299,7 +299,7 @@
                                              <div class="icon fa-play"></div>
                                           </div>
                                        </div>
-                                       <a href="generic.html" class="link"><span>Click Me</span></a>
+                                       <a href="generic.jsp" class="link"><span>Click Me</span></a>
                                     </div>
                                  <!-- Video Thumbnail -->
                                     <div class="video col">
@@ -319,7 +319,7 @@
                                              <div class="icon fa-play"></div>
                                           </div>
                                        </div>
-                                       <a href="generic.html" class="link"><span>Click Me</span></a>
+                                       <a href="generic.jsp" class="link"><span>Click Me</span></a>
                                     </div>
                                  <!-- Video Thumbnail -->
                                     <div class="video col">
@@ -329,7 +329,7 @@
                                              <div class="icon fa-play"></div>
                                           </div>
                                        </div>
-                                       <a href="generic.html" class="link"><span>Click Me</span></a>
+                                       <a href="generic.jsp" class="link"><span>Click Me</span></a>
                                     </div>
                               </div>
 
@@ -342,7 +342,7 @@
             <section class="wrapper ">
                <div class="inner">
                   <header class="align-center">
-                     <h2>Ïù∏Í∏∞ ÏΩòÏÑúÌä∏</h2>
+                     <h2>¿Œ±‚ ƒ‹º≠∆Æ</h2>
                      
                   </header>
 
@@ -358,7 +358,7 @@
                            <p class="caption">
                               1
                            </p>
-                           <a href="generic.html" class="link"><span>Click Me</span></a>
+                           <a href="generic.jsp" class="link"><span>Click Me</span></a>
                         </div>
                         <div class="video col">
                            <div class="image fit">
@@ -370,7 +370,7 @@
                            <p class="caption">
                               2
                            </p>
-                           <a href="generic.html" class="link"><span>Click Me</span></a>
+                           <a href="generic.jsp" class="link"><span>Click Me</span></a>
                         </div>
                         <div class="video col">
                            <div class="image fit">
@@ -382,7 +382,7 @@
                            <p class="caption">
                               3
                            </p>
-                           <a href="generic.html" class="link"><span>Click Me</span></a>
+                           <a href="generic.jsp" class="link"><span>Click Me</span></a>
                         </div>
                      </div>
                </div>
@@ -433,56 +433,38 @@
                &copy; Untitled. Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a href="https://unsplash.com">Coverr</a>. Video: <a href="https://coverr.co">Coverr</a>.
             </div>
          </footer>
-		<div class="modal" id="accountModal">
+         
+         <!--  ∑Œ±◊¿Œ ∏¥ﬁ -->
+         <div class="modal" id="login_Modal">
     		<div class="modal-dialog">
      			 <div class="modal-content">
       
       			  <!-- Modal Header -->
       			  <div class="modal-header">
-      			    <h4 class="modal-title">Î°úÍ∑∏Ïù∏</h4>
+      			    <h4 class="modal-title">∑Œ±◊¿Œ</h4>
      			    <button type="button" class="close" data-dismiss="modal">&times;</button>
       			  </div>
         
         		  <!-- Modal body -->
        			  <div class="modal-body">
-        			  <div class="container">
-        				<form action="#" id = "modal_form">
+        			  <div class="container uniform">
+        				<form action="#" id = "login_form">
 						 <fieldset>
 					    	<div class = "form-group">
-								<label for ="modal_id" class="modalBlack">ÏïÑÏù¥Îîî</label>
-								<input type="text" class="form-control" id="modal_id"
-								   placeholder = "Enter id" name="modal_id" required maxLength="12">
-								<span id = "modal_message"></span>
+								<label for ="login_id" class="modalBlack">æ∆¿Ãµ</label>
+								<input type="text" class="form-control" id="login_id"
+								   placeholder = "Enter id" name="login_id" required maxLength="12">
+								<span id = "login_id_message"></span>
 							</div>
 							<div class = "form-group">
-								<label for ="modal_pass" class="modalBlack">ÎπÑÎ∞ÄÎ≤àÌò∏</label>
-								<input type="password" class="form-control" id="modal_pass"
-								   placeholder = "Enter password" name="modal_pass" required>
+								<label for ="modal_pass" class="modalBlack">∫Òπ–π¯»£</label>
+								<input type="password" class="form-control" id="login_pass"
+								   placeholder = "Enter password" name="login_pass" required>
 							</div>
-							<div class = "form-group">
-								<label for = "modal_name" class="modalBlack"><b>Ïù¥Î¶Ñ</b></label>
-								<input type="text" id = "modal_name" name = "modal_name" placeholder="Enter name" required maxLength="15">
+							<div class="6u$ 12u$(small)">
+								<input type="checkbox" id="login_remember" name="login_remember" checked>
+								<label for="login_remember">Remember me</label>
 							</div>
-							<div class = "form-group">
-								<label for = "modal_age" class="modalBlack"><b>ÎÇòÏù¥</b></label>
-								<input type="text" id = "modal_age" name = "modal_age" placeholder="Enter age" required maxLength="2">
-							</div>
-							<div class = "form-group">
-								<label class="modalBlack"><b>ÏÑ±Î≥Ñ</b></label>
-								<input type="radio" name = "modal_gender" value="ÎÇ®" checked><span>ÎÇ®Ïûê</span>
-								<input type="radio" name = "modal_gender" value="Ïó¨" ><span>Ïó¨Ïûê</span>
-							</div>
-							<div class = "form-group">
-								<label for = "modal_email" class="modalBlack"><b>Ïù¥Î©îÏùº Ï£ºÏÜå</b></label>
-								<input type="text" id = "modal_email" name = "modal_email" placeholder="Enter email" required>
-								<span id ="modal_email_message"></span>
-							</div>
-							<div class = "form-group form-check">
-								<label class="form-check-label">
-								<input class = "from-check-input" type = "checkbox" name="modal_remember">
-									Remember me</label>
-							</div>
-				
 						</fieldset>
 						</form>
         			</div>
@@ -490,8 +472,68 @@
         
         <!-- Modal footer -->
        			 <div class="modal-footer">
-        			<button type="submit" class="btn btn-primary">ÌöåÏõêÍ∞ÄÏûÖ</button>
-         			 <button type="button" class="btn btn-danger" data-dismiss="modal">Îã§ÏãúÏûëÏÑ±</button>
+        			<button type="submit" class="btn btn-primary" >∑Œ±◊¿Œ</button>
+         			<button type="button" class="btn btn-danger" data-dismiss="modal">√Îº“</button>
+         			<button type="button" class="btn btn-info" data-dismiss="modal" data-toggle="modal" data-target="#addMember_Modal"> »∏ø¯∞°¿‘</button>
+     			 </div>
+        
+    		  </div>
+    		</div>
+  		</div>
+         
+         
+         
+         <!-- »∏ø¯∞°¿‘ ∏¥ﬁ -->
+		<div class="modal" id="addMember_Modal">
+    		<div class="modal-dialog">
+     			 <div class="modal-content">
+      
+      			  <!-- Modal Header -->
+      			  <div class="modal-header">
+      			    <h4 class="modal-title">»∏ø¯∞°¿‘</h4>
+     			    <button type="button" class="close" data-dismiss="modal">&times;</button>
+      			  </div>
+        
+        		  <!-- Modal body -->
+       			  <div class="modal-body">
+        			  <div class="container">
+        				<form action="#" id = "addMember_form">
+						 <fieldset>
+					    	<div class = "form-group">
+								<label for ="addMember_id" class="modalBlack">æ∆¿Ãµ</label>
+								<input type="text" class="form-control" id="addMember_id"
+								   placeholder = "Enter id" name="addMember_id" required maxLength="12">
+								<span id = "addMember_id_message"></span>
+							</div>
+							<div class = "form-group">
+								<label for ="addMember_pass" class="modalBlack">∫Òπ–π¯»£</label>
+								<input type="password" class="form-control" id="addMember_pass"
+								   placeholder = "Enter password" name="addMember_pass" required>
+							</div>
+							<div class = "form-group">
+								<label for = "addMember_name" class="modalBlack">¿Ã∏ß</label>
+								<input type="text" id = "addMember_name" name = "addMember_name" placeholder="Enter name" required maxLength="15">
+							</div>
+							<div class = "form-group">
+								<label for = "addMember_age" class="modalBlack">≥™¿Ã</label>
+								<input type="text" id = "addMember_age" name = "addMember_age" placeholder="Enter age" required maxLength="2">
+							</div>
+							<div class="u$(small)">
+								<div><label for="male" class = "modalBlack">º∫∫∞</label></div>
+								<input type="radio" id = "male" name="addMember_gender" value="1" checked>
+								<label for="male" class ="modalBlack">≥≤</label>
+								<input type="radio" id = "female" name="addMember_gender" value="2">
+								<label for="female" class ="modalBlack">ø©</label>
+							</div>
+						</fieldset>
+						</form>
+        			</div>
+    	    	</div>
+        
+        <!-- Modal footer -->
+       			 <div class="modal-footer">
+        			<button type="submit" class="btn btn-primary">»∏ø¯∞°¿‘</button>
+         			 <button type="button" class="btn btn-danger" data-dismiss="modal">√Îº“</button>
      			 </div>
         
     		  </div>
@@ -504,19 +546,19 @@
          <script src="assets/js/util.js"></script>
          <script src="assets/js/main.js"></script>
          <script>
-      // ÌöåÏõêÍ∞ÄÏûÖ id Ï≤¥ÌÅ¨
-			$("#modal_id").on('keyup', function() {
-				//Ï≤òÏùåÏóê patternÏóê Ï†ÅÌï©ÌïòÏßÄ ÏïäÏùÄ Í≤ΩÏö∞ Î©îÏãúÏßÄ Ï∂úÎ†• ÌõÑ
-				// Ï†ÅÌï©Ìïú Îç∞Ïù¥ÌÑ∞Î•º ÏûÖÎ†•Ìï¥ÎèÑ Í≥ÑÏÜç Í∞ôÏùÄ Îç∞Ïù¥ÌÑ∞ Ï∂úÎ†•ÌïòÎØÄÎ°ú
-				// Ïù¥Î≤§Ìä∏ ÏãúÏûëÌï† ÎïåÎßàÎã§ ÎπÑÏõåÎëîÎã§.
-				$("modal_message").empty();
+      // »∏ø¯∞°¿‘ id √º≈©
+			$("#addMember_id").on('keyup', function() {
+				//√≥¿Ωø° patternø° ¿˚«’«œ¡ˆ æ ¿∫ ∞ÊøÏ ∏ﬁΩ√¡ˆ √‚∑¬ »ƒ
+				// ¿˚«’«— µ•¿Ã≈Õ∏¶ ¿‘∑¬«ÿµµ ∞Ëº” ∞∞¿∫ µ•¿Ã≈Õ √‚∑¬«œπ«∑Œ
+				// ¿Ã∫•∆Æ Ω√¿€«“ ∂ß∏∂¥Ÿ ∫Òøˆµ–¥Ÿ.
+				$("addMember_id_message").empty();
 				// \w => [A-Za-z0-9_]
-				var pattern = /^\w{5,12}$/;
-				var id =$("#modal_id").val();
+				var pattern = /^\w+@\w*[.]\w{3}$/;
+				var id =$("#addMember_id").val();
 				
 				if(!pattern.test(id)) {
-					$("#modal_message").css('color', 'red')
-										.html("ÏòÅÎ¨∏Ïûê Ïà´Ïûê_Î°ú 5~12Ïûê Í∞ÄÎä•ÌïòÎã§.");
+					$("#addMember_id_message").css('color', 'red')
+										.html("¿Ã∏ﬁ¿œ «¸Ωƒ¿∏∑Œ ∏¬√Á¡÷ººø‰.");
 					return;
 				}
 				$.ajax({
@@ -525,35 +567,24 @@
 					data : {"id": id},
 					success : function(rdata) {
 						if(rdata == -1) {
-							$("#modal_message").css('color', 'green').html(
-									"ÏÇ¨Ïö© Í∞ÄÎä•Ìïú ÏïÑÏù¥Îîî ÏûÖÎãàÎã§.");
+							$("#addMember_id_message").css('color', 'green').html(
+									"ªÁøÎ ∞°¥…«— æ∆¿Ãµ ¿‘¥œ¥Ÿ.");
 						} else {
-							$("#modal_message").css('color', 'blue').html(
-									 "ÏÇ¨Ïö©Ï§ëÏù∏ ÏïÑÏù¥Îîî ÏûÖÎãàÎã§.");
+							$("#addMember_id_message").css('color', 'blue').html(
+									 "ªÁøÎ¡ﬂ¿Œ æ∆¿Ãµ ¿‘¥œ¥Ÿ.");
 						}
 					}//if
 				});//ajax
 				
 			});// keyup
-			
-			
-			$("#modal_email").on('keyup', function() {
-				$("#email_message").empty();
-				//[A-Za-z0-9_]ÏôÄ ÎèôÏùºÌïú Í≤ÉÏù¥ \w
-				var pattern = /\w+@\w|[.]\w{3}/;
-				var email = $("#modal_email").val();
-				console.log(email);
-				console.log(!pattern.test(email))
-				if(!pattern.test(email)) {
-					$("email_message").css().html("ÏÇ¨Ïö© Í∞ÄÎä•Ìïú Ïù¥Î©îÏùºÏûÖÎãàÎã§.");
-				} else {
-					$("email_message").css().html("ÏÇ¨Ïö© Î∂àÍ∞ÄÎä•Ìïú Ïù¥Î©îÏùºÏûÖÎãàÎã§.");
+			$('#search_Button').click(function() {
+				if($('.hidden').css('visibility') === 'hidden') {
+					$('.hidden').css('visibility','visible');
+				}  else {
+					$('.hidden').css('visibility','hidden');
 				}
-			})
-			$('#modal_form').submit(function(event) {
-				
-				event.preventDefault();
 			});
+			
          </script>
 
    </body>
