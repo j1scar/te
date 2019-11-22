@@ -3779,6 +3779,9 @@
 	.hidden {
 		visibility : hidden;
 	}
+	#search_Text {
+		width : 30px;
+	}
 /* Main */
 
 /* Footer */
