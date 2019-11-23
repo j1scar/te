@@ -3085,11 +3085,7 @@
 			.wrapper.style2 input[type="submit"],
 			.wrapper.style2 input[type="reset"],
 			.wrapper.style2 input[type="button"],
-			.wrapper.style2 button,
-			.wrapper.style2 .button {
-				background-color: #ffffff;
-				color: #041625 !important;
-			}
+			
 
 				.wrapper.style2 input[type="submit"].alt,
 				.wrapper.style2 input[type="reset"].alt,
@@ -3769,6 +3765,12 @@
 		body.is-loading #banner:before {
 			opacity: 1;
 		}
+		
+	.listWrapper {
+		background-color: #041625;
+		color : #c0c5c9;
+		width : 100%;
+	}
 	.modalBlack {
 		color : black;
 	}
@@ -3776,13 +3778,41 @@
 		background: rgba(8, 8, 8, 0.075);
    		 border-color: rgba(10, 10, 10, 0.15);
 	}
+	.modal-dialog {
+		background-color : white;
+	}
 	.hidden {
 		visibility : hidden;
 	}
 	#search_Text {
-		width : 30px;
+		display : inline;
+		width : 130px;
+	}
+	
+	.slick-slide img {
+		width : 150px;
+		height : 150px;
+	}
+	
+	.slick-slide {
+		margin : 30px 15px;
+	}
+	.slick-prev,
+	.slick-next {
+		top : 30%;
+	}
+	.slick-arrow {
+		margin : 50px;
+		z-index : 2;
+	}
+	.slick-prev, .slick-next {
+		top :20%;
+	
 	}
 /* Main */
+body, footer, header {
+	background-color : black;
+}
 
 /* Footer */
 

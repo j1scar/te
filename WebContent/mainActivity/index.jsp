@@ -6,10 +6,15 @@
       <title>Music For Everyone</title>
       <meta charset="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <link rel="stylesheet" href="assets/css/main.css" />
+      
 	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+	  
+	  <link rel="stylesheet" type="text/css" href="http://kenwheeler.github.io/slick/slick/slick.css" />
+      <link rel="stylesheet" type="text/css" href="http://kenwheeler.github.io/slick/slick/slick-theme.css" />
+      <script type="text/javascript" src="http://kenwheeler.github.io/slick/slick/slick.min.js"></script>
+<link rel="stylesheet" href="assets/css/main.css" />
    </head>
    <body>
       <!-- Header -->
@@ -18,8 +23,8 @@
             <div>
             <button type ="button" class = "btn btn-secondary"><span class = "glyphicon glyphicon-tasks" aria-hidden="true"></span></button>
             <!--  검색 텍스트 -->
-        	 <input type="text" id ="search_Text">
-            <button id = "search_Button" type ="button" class = "btn btn-secondary" data-toggle="collapse" data-target ="#search_Text"><span class = "glyphicon glyphicon-search" aria-hidden="true"></span></button>
+        	 <input class = "search_Text"type="text" id ="search_Text" placeholder = "search...">
+            <button id = "search_Button" type ="button" class = "btn btn-secondary"><span class = "glyphicon glyphicon-search" aria-hidden="true"></span></button>
             <button type ="button" class = "btn btn-secondary" data-toggle="modal" data-target="#login_Modal"><span class = "glyphicon glyphicon-user" aria-hidden="true"></span></button>
             <a href="#menu">Menu</a>
             </div>
@@ -46,349 +51,48 @@
             </ul>
          </nav>
 
-         <!-- Banner -->
-         <!--
-            To use a video as your background, set data-video to the name of your video without
-            its extension (eg. images/banner). Your video must be available in both .mp4 and .webm
-            formats to work correctly.
-         -->
-            <section id="banner" data-video="../images/banner">   <!-- 다른 이미지 넣기 -->
-               <div class="inner">
-                  <header>
-                     <h1>Music For Everyone</h1>
-                     <p>다양한 공연을 즐기세요~</p>
-                  </header>
-                  <a href="#main" class="button big alt scrolly">Start</a>
-               </div>
+       
+        <div id="main">
+        <section class = "listWrapper">
+          <div class="slider">
+     		<div class="item"><img src="http://picsum.photos/id/239/550/550"></div>
+     		<div class="item"><img src="http://picsum.photos/id/240/550/550"></div>
+     		<div class="item"><img src="http://picsum.photos/id/241/550/550"></div>
+     		<div class="item"><img src="http://picsum.photos/id/242/550/550"></div>
+     		<div class="item"><img src="http://picsum.photos/id/243/550/550"></div>
+     		<div class="item"><img src="http://picsum.photos/id/244/550/550"></div>
+     		<div class="item"><img src="http://picsum.photos/id/244/550/550"></div>
+     		<div class="item"><img src="http://picsum.photos/id/239/550/550"></div>
+     		<div class="item"><img src="http://picsum.photos/id/249/550/550"></div>
+     		<div class="item"><img src="http://picsum.photos/id/248/550/550"></div>
+     		<div class="item"><img src="http://picsum.photos/id/248/550/550"></div>
+     		<div class="item"><img src="http://picsum.photos/id/248/550/550"></div>
+     		<div class="item"><img src="http://picsum.photos/id/248/550/550"></div>
+     		<div class="item"><img src="http://picsum.photos/id/248/550/550"></div>
+   	     </div>
+   	     </section>
+		<section class = "listWrapper">
+          <div class="slider">
+     		<div class="item"><img src="http://picsum.photos/id/239/550/550"></div>
+     		<div class="item"><img src="http://picsum.photos/id/240/550/550"></div>
+     		<div class="item"><img src="http://picsum.photos/id/241/550/550"></div>
+     		<div class="item"><img src="http://picsum.photos/id/242/550/550"></div>
+     		<div class="item"><img src="http://picsum.photos/id/243/550/550"></div>
+     		<div class="item"><img src="http://picsum.photos/id/244/550/550"></div>
+     		<div class="item"><img src="http://picsum.photos/id/244/550/550"></div>
+     		<div class="item"><img src="http://picsum.photos/id/239/550/550"></div>
+     		<div class="item"><img src="http://picsum.photos/id/249/550/550"></div>
+     		<div class="item"><img src="http://picsum.photos/id/248/550/550"></div>
+     		<div class="item"><img src="http://picsum.photos/id/248/550/550"></div>
+     		<div class="item"><img src="http://picsum.photos/id/248/550/550"></div>
+     		<div class="item"><img src="http://picsum.photos/id/248/550/550"></div>
+   	     </div>
+   	     </section>
+   	     </div>
+  				
+           
 
-            </section>
-
-      <!-- Main -->
-         <div id="main">
-
-         <!-- One -->
-            <section class="wrapper style1">
-               <div class="inner">
-                  <header class="align-center">
-                     <h2>맞춤형 콘서트</h2>
-                  </header>
-                  <!-- 2 Column Video Section -->
-                     <div class="flex flex-2">
-                        <div class="video col">
-                           <div class="image fit">
-                              <img src="images/pic07.jpg" alt="" />
-                              <div class="arrow">
-                                 <div class="icon fa-play"></div>
-                              </div>
-                           </div>
-                           <p class="caption">
-                              콘서트1
-                           </p>
-                           <a href="generic.jsp" class="link"><span>Click Me</span></a>
-                        </div>
-                        <div class="video col">
-                           <div class="image fit">
-                              <img src="images/pic08.jpg" alt="" />
-                              <div class="arrow">
-                                 <div class="icon fa-play"></div>
-                              </div>
-                           </div>
-                           <p class="caption">
-                              콘서트2
-                           </p>
-                           <a href="generic.jsp" class="link"><span>Click Me</span></a>
-                        </div>
-                        <div class="video col">
-                           <div class="image fit">
-                              <img src="images/pic08.jpg" alt="" />
-                              <div class="arrow">
-                                 <div class="icon fa-play"></div>
-                              </div>
-                           </div>
-                           <p class="caption">
-                              콘서트3
-                           </p>
-                           <a href="generic.jsp" class="link"><span>Click Me</span></a>
-                        </div>
-                        <div class="video col">
-                           <div class="image fit">
-                              <img src="images/pic08.jpg" alt="" />
-                              <div class="arrow">
-                                 <div class="icon fa-play"></div>
-                              </div>
-                           </div>
-                           <p class="caption">
-                              콘서트4
-                           </p>
-                           <a href="generic.jsp" class="link"><span>Click Me</span></a>
-                        </div>
-                     </div>
-               </div>
-            </section>
-
-         <!-- Two -->
-            <section class="wrapper style2">
-               <div class="inner">
-                  <header>
-                     <h2>추천공연</h2>
-                  </header>
-                  <!-- Tabbed Video Section -->
-                     <div class="flex flex-tabs">
-                        <ul class="tab-list">
-                           <li><a href="#" data-tab="tab-1" class="active">락</a></li>
-                           <li><a href="#" data-tab="tab-2">발라드</a></li>
-                           <li><a href="#" data-tab="tab-3">재즈</a></li>
-                        </ul>
-                        <div class="tabs">
-
-                           <!-- Tab 1 -->
-                              <div class="tab tab-1 flex flex-3 active">
-                                 <!-- Video Thumbnail -->
-                                    <div class="video col">
-                                       <div class="image fit">
-                                          <img src="images/pic01.jpg" alt="" />
-                                          <div class="arrow">
-                                             <div class="icon fa-play"></div>
-                                          </div>
-                                       </div>
-                                       <a href="generic.jsp" class="link"><span>Click Me</span></a>
-                                    </div>
-                                 <!-- Video Thumbnail -->
-                                    <div class="video col">
-                                       <div class="image fit">
-                                          <img src="images/pic02.jpg" alt="" />
-                                          <div class="arrow">
-                                             <div class="icon fa-play"></div>
-                                          </div>
-                                       </div>
-                                       <a href="generic.jsp" class="link"><span>Click Me</span></a>
-                                    </div>
-                                 <!-- Video Thumbnail -->
-                                    <div class="video col">
-                                       <div class="image fit">
-                                          <img src="images/pic03.jpg" alt="" />
-                                          <div class="arrow">
-                                             <div class="icon fa-play"></div>
-                                          </div>
-                                       </div>
-                                       <a href="generic.jsp" class="link"><span>Click Me</span></a>
-                                    </div>
-                                 <!-- Video Thumbnail -->
-                                    <div class="video col">
-                                       <div class="image fit">
-                                          <img src="images/pic04.jpg" alt="" />
-                                          <div class="arrow">
-                                             <div class="icon fa-play"></div>
-                                          </div>
-                                       </div>
-                                       <a href="generic.jsp" class="link"><span>Click Me</span></a>
-                                    </div>
-                                 <!-- Video Thumbnail -->
-                                    <div class="video col">
-                                       <div class="image fit">
-                                          <img src="images/pic05.jpg" alt="" />
-                                          <div class="arrow">
-                                             <div class="icon fa-play"></div>
-                                          </div>
-                                       </div>
-                                       <a href="generic.jsp" class="link"><span>Click Me</span></a>
-                                    </div>
-                                 <!-- Video Thumbnail -->
-                                    <div class="video col">
-                                       <div class="image fit">
-                                          <img src="images/pic06.jpg" alt="" />
-                                          <div class="arrow">
-                                             <div class="icon fa-play"></div>
-                                          </div>
-                                       </div>
-                                       <a href="generic.jsp" class="link"><span>Click Me</span></a>
-                                    </div>
-                              </div>
-
-                           <!-- Tab 2 -->
-                              <div class="tab tab-2 flex flex-3">
-                                 <!-- Video Thumbnail -->
-                                    <div class="video col">
-                                       <div class="image fit">
-                                          <img src="images/pic06.jpg" alt="" />
-                                          <div class="arrow">
-                                             <div class="icon fa-play"></div>
-                                          </div>
-                                       </div>
-                                       <a href="generic.jsp" class="link"><span>Click Me</span></a>
-                                    </div>
-                                 <!-- Video Thumbnail -->
-                                    <div class="video col">
-                                       <div class="image fit">
-                                          <img src="images/pic05.jpg" alt="" />
-                                          <div class="arrow">
-                                             <div class="icon fa-play"></div>
-                                          </div>
-                                       </div>
-                                       <a href="generic.jsp" class="link"><span>Click Me</span></a>
-                                    </div>
-                                 <!-- Video Thumbnail -->
-                                    <div class="video col">
-                                       <div class="image fit">
-                                          <img src="images/pic04.jpg" alt="" />
-                                          <div class="arrow">
-                                             <div class="icon fa-play"></div>
-                                          </div>
-                                       </div>
-                                       <a href="generic.jsp" class="link"><span>Click Me</span></a>
-                                    </div>
-                                 <!-- Video Thumbnail -->
-                                    <div class="video col">
-                                       <div class="image fit">
-                                          <img src="images/pic03.jpg" alt="" />
-                                          <div class="arrow">
-                                             <div class="icon fa-play"></div>
-                                          </div>
-                                       </div>
-                                       <a href="generic.jsp" class="link"><span>Click Me</span></a>
-                                    </div>
-                                 <!-- Video Thumbnail -->
-                                    <div class="video col">
-                                       <div class="image fit">
-                                          <img src="images/pic02.jpg" alt="" />
-                                          <div class="arrow">
-                                             <div class="icon fa-play"></div>
-                                          </div>
-                                       </div>
-                                       <a href="generic.jsp" class="link"><span>Click Me</span></a>
-                                    </div>
-                                 <!-- Video Thumbnail -->
-                                    <div class="video col">
-                                       <div class="image fit">
-                                          <img src="images/pic01.jpg" alt="" />
-                                          <div class="arrow">
-                                             <div class="icon fa-play"></div>
-                                          </div>
-                                       </div>
-                                       <a href="generic.jsp" class="link"><span>Click Me</span></a>
-                                    </div>
-                              </div>
-
-                           <!-- Tab 3 -->
-                              <div class="tab tab-3 flex flex-3">
-                                 <!-- Video Thumbnail -->
-                                    <div class="video col">
-                                       <div class="image fit">
-                                          <img src="images/pic03.jpg" alt="" />
-                                          <div class="arrow">
-                                             <div class="icon fa-play"></div>
-                                          </div>
-                                       </div>
-                                       <a href="generic.jsp" class="link"><span>Click Me</span></a>
-                                    </div>
-                                 <!-- Video Thumbnail -->
-                                    <div class="video col">
-                                       <div class="image fit">
-                                          <img src="images/pic02.jpg" alt="" />
-                                          <div class="arrow">
-                                             <div class="icon fa-play"></div>
-                                          </div>
-                                       </div>
-                                       <a href="generic.jsp" class="link"><span>Click Me</span></a>
-                                    </div>
-                                 <!-- Video Thumbnail -->
-                                    <div class="video col">
-                                       <div class="image fit">
-                                          <img src="images/pic01.jpg" alt="" />
-                                          <div class="arrow">
-                                             <div class="icon fa-play"></div>
-                                          </div>
-                                       </div>
-                                       <a href="generic.jsp" class="link"><span>Click Me</span></a>
-                                    </div>
-                                 <!-- Video Thumbnail -->
-                                    <div class="video col">
-                                       <div class="image fit">
-                                          <img src="images/pic06.jpg" alt="" />
-                                          <div class="arrow">
-                                             <div class="icon fa-play"></div>
-                                          </div>
-                                       </div>
-                                       <a href="generic.html" class="link"><span>Click Me</span></a>
-                                    </div>
-                                 <!-- Video Thumbnail -->
-                                    <div class="video col">
-                                       <div class="image fit">
-                                          <img src="images/pic05.jpg" alt="" />
-                                          <div class="arrow">
-                                             <div class="icon fa-play"></div>
-                                          </div>
-                                       </div>
-                                       <a href="generic.jsp" class="link"><span>Click Me</span></a>
-                                    </div>
-                                 <!-- Video Thumbnail -->
-                                    <div class="video col">
-                                       <div class="image fit">
-                                          <img src="images/pic04.jpg" alt="" />
-                                          <div class="arrow">
-                                             <div class="icon fa-play"></div>
-                                          </div>
-                                       </div>
-                                       <a href="generic.jsp" class="link"><span>Click Me</span></a>
-                                    </div>
-                              </div>
-
-                        </div>
-                     </div>
-               </div>
-            </section>
-
-         <!-- Three -->
-            <section class="wrapper ">
-               <div class="inner">
-                  <header class="align-center">
-                     <h2>인기 콘서트</h2>
-                     
-                  </header>
-
-                  <!-- 3 Column Video Section -->
-                     <div class="flex flex-3">
-                        <div class="video col">
-                           <div class="image fit">
-                              <img src="images/pic09.jpg" alt="" />
-                              <div class="arrow">
-                                 <div class="icon fa-play"></div>
-                              </div>
-                           </div>
-                           <p class="caption">
-                              1
-                           </p>
-                           <a href="generic.jsp" class="link"><span>Click Me</span></a>
-                        </div>
-                        <div class="video col">
-                           <div class="image fit">
-                              <img src="images/pic10.jpg" alt="" />
-                              <div class="arrow">
-                                 <div class="icon fa-play"></div>
-                              </div>
-                           </div>
-                           <p class="caption">
-                              2
-                           </p>
-                           <a href="generic.jsp" class="link"><span>Click Me</span></a>
-                        </div>
-                        <div class="video col">
-                           <div class="image fit">
-                              <img src="images/pic11.jpg" alt="" />
-                              <div class="arrow">
-                                 <div class="icon fa-play"></div>
-                              </div>
-                           </div>
-                           <p class="caption">
-                              3
-                           </p>
-                           <a href="generic.jsp" class="link"><span>Click Me</span></a>
-                        </div>
-                     </div>
-               </div>
-            </section>
-
-         </div>
+        
 
       <!-- Footer -->
          <footer id="footer">
@@ -547,6 +251,8 @@
          <script src="assets/js/main.js"></script>
          <script>
       // 회원가입 id 체크
+      
+      	$(document).ready(function(){
 			$("#addMember_id").on('keyup', function() {
 				//처음에 pattern에 적합하지 않은 경우 메시지 출력 후
 				// 적합한 데이터를 입력해도 계속 같은 데이터 출력하므로
@@ -577,15 +283,48 @@
 				});//ajax
 				
 			});// keyup
-			$('#search_Button').click(function() {
-				if($('.hidden').css('visibility') === 'hidden') {
-					$('.hidden').css('visibility','visible');
-				}  else {
-					$('.hidden').css('visibility','hidden');
-				}
-			});
+			$('#search_Text').hide();
 			
+			$('#search_Button').click(function() {
+				$('#search_Text').toggle();
+				$('#search_Button').hide();
+				$('#search_Text').focus();
+			});
+			$('#search_Text').blur(function() {
+				$('#search_Button').show();
+				$('#search_Text').val('');
+				$('#search_Text').hide();
+			});
+		     $.noConflict();
+		
+		     $('.slider').slick({
+		    	  centerMode: true,
+		    	  slidesToShow: 10,
+		    	  infinite :true,
+		    	  slidesToscroll : 8,
+		    	  responsive: [
+		    	    {
+		    	      breakpoint: 768,
+		    	      settings: {
+		    	        arrows: false,
+		    	        centerMode: true,
+		    	        slidesToShow: 7
+		    	      }
+		    	    },
+		    	    {
+		    	      breakpoint: 480,
+		    	      settings: {
+		    	        arrows: false,
+		    	        centerMode: true,
+		    	        slidesToShow: 3
+		    	      }
+		    	    }
+		    	  ]
+		    	});
+      	});
          </script>
+ 
+ 
 
    </body>
 </html>
