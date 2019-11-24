@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class FrontController
@@ -33,27 +34,22 @@ public class FrontController extends HttpServlet {
     	
     	// getContextPath() : 컨텍스트 경로가 반환됩니다.
     	// contextPath는 "/JspProject"가 반환됩니다.
-    	
     	String contextPath = request.getContextPath();
     	System.out.println("contextPath = " + contextPath);
     	
     	// RequestURI에서 컨텍스트 경로 길이 값의 인덱스 위치의 문자로부터
     	// 마지막 위치 문자까지 추출합니다.
     	// command는 "/login.net" 반환됩니다.
-    	String command = RequestURI.substring(contextPath.length());
+    	String command = RequestURI.substring(RequestURI.lastIndexOf("/"));
     	System.out.println("command = " + command);
     	
     	//초기화
     	ActionForward forward = null;
     	Action action=null;
-    	if(command.equals("/login.net")) {
+    	if(command.equals("/main.net")) {
     		forward=new ActionForward();
     		forward.setRedirect(false);//주소 변경없이 jsp페이지의 내용을 보여줌
-    		forward.setPath("member/loginForm.jsp");
-    	} else if(command.equals("/join.net")) {
-    		forward = new ActionForward();
-    		forward.setRedirect(false);
-    		forward.setPath("member/joinForm.jsp");
+    		forward.setPath("main.jsp");
     	} else if(command.equals("/idcheck.net")) {
     		action = new IdCheckAction();
     		try {
@@ -76,6 +72,12 @@ public class FrontController extends HttpServlet {
     		} catch(Exception e) {
     			e.printStackTrace();
     		}
+    	} else if(command.equals("/logOut.net")) {
+    		HttpSession session = request.getSession();
+    		session.invalidate();
+    		forward =new ActionForward();
+    		forward.setRedirect(false);
+    		forward.setPath("main.jsp");
     	}
     	
     	if(forward !=null) {

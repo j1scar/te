@@ -1656,10 +1656,14 @@
 		margin: 0 0 2em 0;
 	}
 
-	h1, h2, h3, h4, h5, h6 {
+	h1, h3, h2, h5, h6 {
 		font-weight: 700;
 		line-height: 1.5;
 		margin: 0 0 1em 0;
+	}
+	h4 {
+		font-weight: 700;
+		line-height : 1.5;
 	}
 
 		h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
@@ -1787,7 +1791,7 @@
 		color: #ffffff;
 	}
 
-	a {
+	a:not(.global) {
 		color: #c1c7cd;
 	}
 
@@ -1944,7 +1948,7 @@
 	input[type="button"],
 	button,
 	.button {
-		background-color: #041625;
+		background-color: transparent;
 		color: #ffffff !important;
 	}
 
@@ -3634,13 +3638,13 @@
 		-webkit-justify-content: center;
 		-ms-justify-content: center;
 		justify-content: center;
-		background-image: url("../../images/banner.jpg");
+		background-image: url("http://picsum.photos/id/452/550/550");
 		background-position: center;
 		background-size: cover;
 		background-repeat: no-repeat;
 		border-top: 0;
-		min-height: 100vh;
-		height: 100vh !important;
+		min-height: 30vh;
+		height: 40vh !important;
 		position: relative;
 		text-align: center;
 		overflow: hidden;
@@ -3765,12 +3769,13 @@
 		body.is-loading #banner:before {
 			opacity: 1;
 		}
-		
+	/* 리스트 css*/
 	.listWrapper {
 		background-color: #041625;
 		color : #c0c5c9;
 		width : 100%;
 	}
+	/* modal 클래스 */
 	.modalBlack {
 		color : black;
 	}
@@ -3781,25 +3786,28 @@
 	.modal-dialog {
 		background-color : white;
 	}
+	.modal-title {
+		color : black;
+	}
+	/* 검색버튼 css */
 	.hidden {
 		visibility : hidden;
 	}
 	#search_Text {
 		display : inline;
-		width : 130px;
+		width : 150px;
 	}
-	
+	/* slick 클래스*/
 	.slick-slide img {
 		width : 150px;
 		height : 150px;
+		
 	}
-	
+	.item {
+	position : relative;
+	}
 	.slick-slide {
 		margin : 30px 15px;
-	}
-	.slick-prev,
-	.slick-next {
-		top : 30%;
 	}
 	.slick-arrow {
 		margin : 50px;
@@ -3809,8 +3817,19 @@
 		top :20%;
 	
 	}
+	.heart {
+		z-index : 3;
+		position : absolute;
+		bottom : 75%;
+		background-color : transparent;
+	}
+	.global {
+		color: white;
+		margin-right : 10px;
+	}
 /* Main */
-body, footer, header {
+	
+body, footer {
 	background-color : black;
 }
 

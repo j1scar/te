@@ -43,7 +43,8 @@ public class BoardFrontController extends HttpServlet {
     	// RequestURI에서 컨텍스트 경로 길이 값의 인덱스 위치의 문자로부터
     	// 마지막 위치 문자까지 추출합니다.
     	// command는 "/login.net" 반환됩니다.
-    	String command = RequestURI.substring(contextPath.length());
+    	String command = RequestURI.substring(RequestURI.lastIndexOf("/"));
+    	//String command = RequestURI.substring(contextPath.length());
     	System.out.println("command = " + command);
     	
     	//초기화
@@ -60,7 +61,7 @@ public class BoardFrontController extends HttpServlet {
     	} else if(command.equals("/BoardWrite.bo")) {
     		forward = new ActionForward();
     		forward.setRedirect(false);
-    		forward.setPath("board/qna_board_write.jsp");
+    		forward.setPath("../board/qna_board_write.jsp");
     	} 
     	
     	if(forward !=null) {

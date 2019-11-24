@@ -16,7 +16,7 @@
 <div id ="header">
 <c:if test="${empty id}">
 	<script>
-		location.href="login.net";
+		location.href="main.net";
 	</script>
 </c:if>
 <c:if test="${!empty id}">
@@ -29,5 +29,5 @@
 	</c:if>
 </c:if>
 <span>(<a href="member_update.net")>정보수정</a>)
-(<a href="logout.net">로그아웃</a>)</span>
+(<a href="logOut.net">로그아웃</a>)</span>
 </div>

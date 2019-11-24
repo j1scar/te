@@ -4,6 +4,7 @@ import java.io.PrintWriter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import mvc.member.db.Member;
 import mvc.member.db.MemberDAO;
@@ -15,23 +16,38 @@ public class JoinProcessAction2  implements Action {
 		String id = request.getParameter("addMember_id");
 		String pass = request.getParameter("addMember_pass");
 		String name = request.getParameter("addMember_name");
-		int age = Integer.parseInt(request.getParameter("addMember_age"));
+		String address = request.getParameter("addMember_address");
+		String phone_number = request.getParameter("addMember_phone_number");
+		String[] preferences = request.getParameterValues("addMember_preference");
+		String preference ="";
+		for(int i = 0; i < preferences.length; i++) {
+			preference += preferences[i];
+			if(i == preferences.length-1) {
+				break;
+			}
+			preference += ",";
+		}
+		
 		String gender = request.getParameter("gender");
-		String email = request.getParameter("email");
 		
 		Member m = new Member();
-		m.setAge(age);
-		m.setEmail(email);
 		m.setId(id);
-		m.setGender(gender);
-		m.setName(name);
 		m.setPassword(pass);
+		m.setName(name);
+		m.setAddress(address);
+		m.setPhone_number(phone_number);
+		m.setPreference(preference);
+		m.setGender(gender);
+		
+		
 		
 		MemberDAO dao = new MemberDAO();
 		int result = dao.insert(m);
 		System.out.println(result + "를 반환");
 		if(result==1) {
-			forward.setPath("login.net");
+			HttpSession session = request.getSession();
+			session.setAttribute("id", id);
+			forward.setPath("main.net");
 			forward.setRedirect(true);
 		} else if(result == -1) {
 			response.setContentType("text/html); charset=UTF-8");

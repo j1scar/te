@@ -31,7 +31,7 @@ public class MemberDAO {
 			con = ds.getConnection();
 			System.out.println("getConnection");
 			
-			String sql = "select id from member where id = ? ";
+			String sql = "select member_id from member where member_id = ? ";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();
@@ -54,7 +54,7 @@ public class MemberDAO {
 			con = ds.getConnection();
 			System.out.println("getConnection");
 			
-			String sql = "select id, password from member where id = ? ";
+			String sql = "select member_id, member_password from member where member_id = ? ";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();
@@ -83,17 +83,16 @@ public class MemberDAO {
 			con = ds.getConnection();
 			System.out.println("getConnection");
 			
-			pstmt = con.prepareStatement("INSERT INTO member VALUES (?, ?, ?, ?, ?, ?)");
+			pstmt = con.prepareStatement("INSERT INTO member VALUES (?, ?, ?, ?, ?, ?, ?)");
 			pstmt.setString(1, m.getId());
 			pstmt.setString(2, m.getPassword());
 			pstmt.setString(3, m.getName());
-			pstmt.setInt(4, m.getAge());
-			pstmt.setString(5, m.getGender());
-			pstmt.setString(6, m.getEmail());
+			pstmt.setString(4, m.getAddress());
+			pstmt.setString(5, m.getPhone_number());
+			pstmt.setString(6, m.getPreference());
+			pstmt.setString(7, m.getGender());
 			
 			result = pstmt.executeUpdate();
-			
-			
 		} catch(SQLException e) {
 			e.printStackTrace();
 		}finally {

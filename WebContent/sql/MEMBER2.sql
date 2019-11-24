@@ -4,14 +4,14 @@ drop table member;
 --3. 사용작 ㅖ정을 3개 만든다.
 
 create table member(
-	id varchar2(15),
-	password varchar2(10),
-	name varchar2(15),
-	age Number,
-	gender varchar2(5),
-	email varchar2(30),
-	primary key(id)
+	member_id varchar2(30),
+	member_password varchar2(20) not null,
+	member_name varchar2(20) not null,
+	member_address varchar2(20) not null,
+	member_phone_number varchar2(20) not null,
+	member_preference varchar2(20),
+	member_gender varchar2(2) not null,
+	primary key(member_id)
 );
-
-insert into member values('admin','1234','관리자',26,'1','dkaskgkdua@naver.com');
+insert into member values('admin@mfe.com','1234','관리자','주소없음','폰번호','선호장르','1');
 select * from member;

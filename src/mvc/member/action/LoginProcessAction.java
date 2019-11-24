@@ -14,8 +14,8 @@ public class LoginProcessAction  implements Action {
 		ActionForward forward = new ActionForward();
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
-		String id = request.getParameter("id");
-		String pass = request.getParameter("pass");
+		String id = request.getParameter("login_id");
+		String pass = request.getParameter("login_pass");
 		MemberDAO dao = new MemberDAO();
 		int result = dao.isId(id, pass);
 		System.out.println(result + "를 반환");
@@ -26,7 +26,7 @@ public class LoginProcessAction  implements Action {
 			//로그인 성공
 			session.setAttribute("id", id);
 			forward.setRedirect(true);
-			forward.setPath("BoardWrite.bo");
+			forward.setPath("main.net");
 			//forward.setPath("BoardList.bo");
 			return forward;
 		}  else {   // 아이디,비밀번호 가 존재하지 않음
@@ -39,7 +39,7 @@ public class LoginProcessAction  implements Action {
 			
 			out.println("<script>");
 			out.println("alert('"+message+"');");
-			out.println("location.href ='login.net';");
+			out.println("location.href ='main.net';");
 			out.println("</script>");
 			out.close();
 			return null;
