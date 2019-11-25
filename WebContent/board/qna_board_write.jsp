@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script src="js/writeform.js" charset="euc-kr"></script>
+<script src="js/writeform.js" charset="UTF-8"></script>
 <jsp:include page ="header.jsp"/>
 <style>
 tr.center-block {
@@ -17,6 +17,17 @@ label{font-weight:bold}
 #upfile{display:none}
 img{width:20px;}
 </style>
+<script>
+$(document).ready(function() {
+	$('#upfile').change(function() {
+		$('#filevalue').val('');
+		console.log($(this).val());
+		var inputfile=$(this).val().split('\\');
+		$('#filevalue').text(inputfile[inputfile.length-1]);
+	});
+});
+
+</script>
 </head>
 <body>
 <div class="container">
@@ -52,14 +63,15 @@ img{width:20px;}
 	<div class="form-group">
 		<label for="board_file">파일 첨부</label>
 		<label for="upfile">
-			<img id = ig src="image/attach.png" alt="사막"></label>
+			<img id = ig src="./images/attach.png" alt="사막"></label>
 		<input type="file" id="upfile" name="BOARD_FILE">
 		<span id="filevalue"></span>
 	</div>		
 	<div class="form-group">
 		<button type=submit class="btn btn-primary">등록</button>
 		<button type=reset class="btn btn-danger">취소</button>
-	</div>	
+	</div>
+		
 </form>
 </div>
 </body>

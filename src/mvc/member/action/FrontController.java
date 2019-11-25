@@ -49,7 +49,7 @@ public class FrontController extends HttpServlet {
     	if(command.equals("/main.net")) {
     		forward=new ActionForward();
     		forward.setRedirect(false);//주소 변경없이 jsp페이지의 내용을 보여줌
-    		forward.setPath("main.jsp");
+    		forward.setPath("mainActivity/main.jsp");
     	} else if(command.equals("/idcheck.net")) {
     		action = new IdCheckAction();
     		try {
@@ -77,7 +77,7 @@ public class FrontController extends HttpServlet {
     		session.invalidate();
     		forward =new ActionForward();
     		forward.setRedirect(false);
-    		forward.setPath("main.jsp");
+    		forward.setPath("mainActivity/main.jsp");
     	}
     	
     	if(forward !=null) {

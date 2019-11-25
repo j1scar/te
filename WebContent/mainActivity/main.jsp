@@ -14,7 +14,7 @@
 	  <link rel="stylesheet" type="text/css" href="http://kenwheeler.github.io/slick/slick/slick.css" />
       <link rel="stylesheet" type="text/css" href="http://kenwheeler.github.io/slick/slick/slick-theme.css" />
       <script type="text/javascript" src="http://kenwheeler.github.io/slick/slick/slick.min.js"></script>
-	  <link rel="stylesheet" href="assets/css/main.css" />
+	  <link rel="stylesheet" href="assets/css/main.css?ver=2" />
    </head>
    <body>
       <!-- 헤더 -->
@@ -26,7 +26,7 @@
         	 <input class = "search_Text"type="text" id ="search_Text" placeholder = "search...">
             <button id = "search_Button" type ="button" class = "btn btn-secondary"><span class = "glyphicon glyphicon-search" aria-hidden="true"></span></button>
             <jsp:include page="navbar.jsp"/>
-            <a class = "global"href="#menu"><span class = "glyphicon glyphicon-globe" aria-hidden="true"></span></a>
+            <a class = "global"href="#menu"><span class = "glyphicon glyphicon-th-large" aria-hidden="true"></span></a>
             </div>
          </header>
 
@@ -35,13 +35,12 @@
          <nav id="menu">
             <ul class="links">
                <li><a href="BoardList.bo" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">자유게시판</a></li>
-               <li><a href="BoardWrite.bo" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">게시판 작성(임시)</a></li>
                <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">리뷰게시판</a></li>
                <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">고객센터 </a></li>
             </ul>
          </nav>
 
-       	<section id="banner" data-video="../images/banner">
+       	<section id="banner">
        		<div class ="inner">
        			<header>
        				<h1>Music For Everyone</h1>
@@ -467,9 +466,9 @@
 		
 		     $('.slider').slick({
 		    	  centerMode: true,
-		    	  slidesToShow: 10,
+		    	  slidesToShow: 7,
 		    	  infinite :true,
-		    	  slidesToscroll : 8,
+		    	  slidesToscroll : 6,
 		    	  responsive: [
 		    	    {
 		    	      breakpoint: 980,
@@ -477,15 +476,16 @@
 		    	        arrows: false,
 		    	        centerMode: true,
 		    	        infinite :true,
-		    	        slidesToShow: 7,
-		    	        slidesToscroll : 6
+		    	        slidesToShow: 5,
+		    	        slidesToscroll : 4
 		    	      }
 		    	    },
 		    	    {
-		    	      breakpoint: 480,
+		    	      breakpoint: 620,
 		    	      settings: {
 		    	        arrows: false,
 		    	        centerMode: true,
+		    	        infinite :true,
 		    	        slidesToShow: 3,
 		    	        slidesToscroll : 2
 		    	      }

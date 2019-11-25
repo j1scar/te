@@ -61,8 +61,29 @@ public class BoardFrontController extends HttpServlet {
     	} else if(command.equals("/BoardWrite.bo")) {
     		forward = new ActionForward();
     		forward.setRedirect(false);
-    		forward.setPath("../board/qna_board_write.jsp");
-    	} 
+    		forward.setPath("./board/qna_board_write.jsp");
+    	} else if(command.equals("/BoardAddAction.bo")) {
+    		action = new BoardAddAction();
+    		try {
+    			forward = action.execute(request, response);
+    		} catch (Exception e) {
+    			e.printStackTrace();
+    		}
+    	} else if(command.equals("/BoardDetailAction.bo")) {
+    		action = new BoardDetailAction();
+    		try {
+    			forward = action.execute(request, response);
+    		} catch(Exception e) {
+    			e.printStackTrace();
+    		}
+    	} else if(command.equals("/BoardFileDown.bo")) {
+    		action = new BoardFileDownAction();
+    		try {
+    			forward = action.execute(request, response);
+    		}catch(Exception e) {
+    			e.printStackTrace();
+    		}
+    	}
     	
     	if(forward !=null) {
     		if(forward.isRedirect()) { //리다이렉트 된다.
