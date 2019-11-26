@@ -269,6 +269,7 @@
         				<form method = "post" action="#" id = "account_form" >
 						 <fieldset>
 					    	<a href="#">My page</a>
+					    	<a href="member_update.net">정보 수정</a>
 					    	<a href="logOut.net">Logout</a>
          					<button type="button" class="btn btn-danger" data-dismiss="modal">취소</button>
 						</fieldset>

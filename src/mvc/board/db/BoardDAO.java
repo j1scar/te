@@ -99,30 +99,30 @@ public class BoardDAO {
 		}
 		return null;
 	}
-	public int isId(String id) {
-		
+	public boolean isBoardWriter(int num, String pass) {		
 		try {
 			con = ds.getConnection();
 			System.out.println("getConnection");
 			
-			String sql = "select member_id from member where member_id = ? ";
-			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, id);
+			String board_sql = "select * from board where BOARD_NUM=? ";
+			pstmt = con.prepareStatement(board_sql);
+			pstmt.setInt(1, num);
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
-				result = 0;  // id 있다.
-			} else {
-				result = -1;  // id 없다.
+				if(pass.equals(rs.getString("BOARD_PASS"))) {
+					return true;
+				}
 			}
 		} catch(SQLException e) {
+			System.out.println("isBoardWriter() 에러");
 			e.printStackTrace();
 		}finally {
 			close();
 		}
-		System.out.println("결과는 = " + result);
-		return result;
+		return false;
 	}
+	
 	public void setReadCountUpdate(int num) {
 		try {
 			con = ds.getConnection();
@@ -146,6 +146,7 @@ public class BoardDAO {
 		}
 		System.out.println("읽음 수 업뎃 결과 = " + result);
 	}
+	
 	public BoardBean getDetail(int num) {
 		BoardBean board = new BoardBean();
 		
@@ -179,6 +180,117 @@ public class BoardDAO {
 		
 		return board;
 		
+	}
+	public int boardReply(BoardBean board) {
+		// board 테이블 board_num 필드의 최대값을 구해와서 글을 등록할 때
+		// 글 번호를 순차적으로 지정하기 위함입니다.
+		// 또한 DB에 저장한 후 다시 보여주기 위해 board_num 필드의 값을 리턴합니다.
+		String board_max_sql = "select max(board_num) from board";
+		String sql = "";
+		int num = 0;
+		/* 답변을 할 원문 글 그룹 번호이다.
+		 * 답변을 달게 되면 답변 글은 이 번호와 같은 관련글 번호를 ㄱ자게 철되면서
+		 * 같은 그룹에 속하게 된다. 글 목록에서 보여줄 때 하나의 그룹으로 묶여서 출력된다.
+		 * */
+		int re_ref = board.getBOARD_RE_REF();
+		System.out.println("re_Ref =" + re_ref);
+		
+		int re_lev = board.getBOARD_RE_LEV();
+		// 같은 관련 글 중에서 해당 글이 출력되는 순서입니다.
+		int re_seq = board.getBOARD_RE_SEQ();
+		
+		try {
+			con = ds.getConnection();
+			//트랜잭션을 이용하기 위해 setAutoCommit을 false로 설정한다.
+			con.setAutoCommit(false);
+			
+			pstmt = con.prepareStatement(board_max_sql);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next())
+				num = rs.getInt(1) + 1;
+			
+			sql = "update board "
+				+ " set BOARD_RE_SEQ = BOARD_RE_SEQ + 1 "
+				+ " where BOARD_RE_REF = ? "
+				+ " and BOARD_RE_SEQ > ? ";
+			
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, re_ref);
+			pstmt.setInt(2,  re_seq);
+			int result1 = pstmt.executeUpdate();
+			// 등록 답변 글의 BOARD_RE_LEV, BOARD_RE_SEQ 값을 원문 글보다 1씩 증가시킨다.
+			re_seq = re_seq + 1;
+			re_lev = re_lev + 1;
+			
+			sql="insert into board "
+			         + "(BOARD_NUM,BOARD_NAME,BOARD_PASS,BOARD_SUBJECT,"
+			         + " BOARD_CONTENT, BOARD_FILE, BOARD_RE_REF,"
+			         + " BOARD_RE_LEV, BOARD_RE_SEQ,"
+			         + " BOARD_READCOUNT,BOARD_DATE) "
+			         + " values(board_seq.nextval,?,?,?,?,?,?,?,?,?,sysdate)";
+			
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1,  board.getBOARD_NAME());
+			pstmt.setString(2, board.getBOARD_PASS());
+			pstmt.setString(3,  board.getBOARD_SUBJECT());
+			pstmt.setString(4,  board.getBOARD_CONTENT());
+			pstmt.setString(5, ""); //답변에는 파일을 업로드하지 않음.
+			pstmt.setInt(6, re_ref);
+			pstmt.setInt(7, re_lev);
+			pstmt.setInt(8, re_seq);
+			pstmt.setInt(9, 0);
+			/*
+			pstmt.setInt(1, num);
+			pstmt.setString(2,  board.getBOARD_NAME());
+			pstmt.setString(3, board.getBOARD_PASS());
+			pstmt.setString(4,  board.getBOARD_SUBJECT());
+			pstmt.setString(5,  board.getBOARD_CONTENT());
+			pstmt.setString(6, ""); //답변에는 파일을 업로드하지 않음.
+			pstmt.setInt(7, re_ref);
+			pstmt.setInt(8, re_lev);
+			pstmt.setInt(9, re_seq);
+			pstmt.setInt(10, 0);  // 조회수는 0
+			*/
+			int result2 = pstmt.executeUpdate();
+			if(result1 >= 0 && result2 == 1) {
+				con.commit();
+				con.setAutoCommit(true);
+			} else {
+				con.rollback();
+				System.out.println("rollback()");
+			}
+		} catch(SQLException e) {
+			
+			System.out.println("boardReply에서 오류");
+			
+			e.printStackTrace();
+			
+		} finally {
+			close();
+		}
+		return  num;
+	}
+	public boolean boardModify(BoardBean modifyboard) {
+		String sql = "update board "
+				   + "set    BOARD_SUBJECT = ?, BOARD_CONTENT = ? "
+				   + "where  BOARD_NUM = ? ";
+		try {
+			con = ds.getConnection();
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1,  modifyboard.getBOARD_SUBJECT());
+			pstmt.setString(2,  modifyboard.getBOARD_CONTENT());
+			pstmt.setInt(3,  modifyboard.getBOARD_NUM());
+			int result = pstmt.executeUpdate();
+			if(result == 1)
+				return true;
+		} catch(Exception ex) {
+			System.out.println("boardModify() 에러 : " + ex);
+			ex.printStackTrace();
+		} finally {
+			close();
+		}
+		return false;
 	}
 	
 	public boolean boardInsert(BoardBean b) {

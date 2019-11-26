@@ -83,7 +83,38 @@ public class BoardFrontController extends HttpServlet {
     		}catch(Exception e) {
     			e.printStackTrace();
     		}
-    	}
+    	}  else if(command.contentEquals("/BoardReplyView.bo")) {
+            action = new BoardReplyView();
+            try {
+               forward=action.execute(request, response);
+              
+            } catch (Exception e) {
+               e.printStackTrace();
+            }
+         } else if(command.contentEquals("/BoardReplyAction.bo")) {
+            action = new BoardReplyAction();
+            try {
+               forward=action.execute(request, response);
+              
+            } catch (Exception e) {
+               e.printStackTrace();
+            }
+         } else if(command.contentEquals("/BoardModifyAction.bo")) {
+            action = new BoardModifyAction();
+            try {
+               forward=action.execute(request, response);
+              
+            } catch (Exception e) {
+               e.printStackTrace();
+            }
+         } else if(command.contentEquals("/BoardModifyView.bo")) {
+             action = new BoardModifyView();
+             try {
+                forward=action.execute(request, response);
+             } catch (Exception e) {
+                e.printStackTrace();
+             }
+          } 
     	
     	if(forward !=null) {
     		if(forward.isRedirect()) { //리다이렉트 된다.

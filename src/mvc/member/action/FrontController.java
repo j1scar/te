@@ -64,8 +64,7 @@ public class FrontController extends HttpServlet {
     		} catch(Exception e) {
     			e.printStackTrace();
     		}
-    	}
-    	else if(command.equals("/loginProcess.net")) {
+    	} else if(command.equals("/loginProcess.net")) {
     		action = new LoginProcessAction();
     		try {
     			forward = action.execute(request, response);
@@ -78,6 +77,22 @@ public class FrontController extends HttpServlet {
     		forward =new ActionForward();
     		forward.setRedirect(false);
     		forward.setPath("mainActivity/main.jsp");
+    	} else if(command.equals("/member_update.net")) {
+    		action = new Member_updateAction();
+    		try {
+    			forward = action.execute(request, response);
+    		} catch(Exception e) {
+    			e.printStackTrace();
+    		}
+    	} else if(command.equals("/updateProcess.net")) {
+    		action = new UpdateProcessAction();
+    		try {
+    			forward = action.execute(request, response);
+    		} catch(Exception e) {
+    			e.printStackTrace();
+    		}
+    	} else if(command.equals("/member_list.net")) {
+    		
     	}
     	
     	if(forward !=null) {
