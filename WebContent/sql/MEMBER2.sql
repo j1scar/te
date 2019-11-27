@@ -14,4 +14,5 @@ create table member(
 	primary key(member_id)
 );
 insert into member values('admin@mfe.com','1234','관리자','주소없음','폰번호','선호장르','1');
+insert into member values('fddfddddd@mfe.com','1234','민민','주소없음','폰번호','','1');
 select * from member;

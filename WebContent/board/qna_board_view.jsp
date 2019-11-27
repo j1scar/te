@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<jsp:include page ="header.jsp"/>
+<jsp:include page ="../mainActivity/navbar.jsp"/>
 	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
@@ -36,7 +36,7 @@ span{width:20px;}
 		<tr>
 			<td><div>첨부파일</div></td>
 			<td><c:if test="${!empty boarddata.BOARD_FILE}">
-				<span class = "glyphicon glyphicon-save" aria-hidden="true"></span><a href="BoardFIleDown.bo?filename=${boarddata.BOARD_FILE}">
+				<span class = "glyphicon glyphicon-save" aria-hidden="true"></span><a href="BoardFileDown.bo?filename=${boarddata.BOARD_FILE}">
 						${boarddata.BOARD_FILE}</a></c:if>
 			</td>
 		</tr>

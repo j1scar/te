@@ -6,16 +6,23 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script src="js/writeform.js" charset="UTF-8"></script>
-<jsp:include page ="header.jsp"/>
+<jsp:include page ="../mainActivity/navbar.jsp"/>
 <style>
 tr.center-block {
 	text-align : center
 }
 h1{font-size:1.5rem; text-align:center; color:#1a92b9}
 .container{width:60%}
-label{font-weight:bold}
+label{
+	font-weight:bold;
+	color : black !important ;
+}
 #upfile{display:none}
 img{width:20px;}
+form {
+	background : white !important;
+}
+
 </style>
 <script>
 $(document).ready(function() {
@@ -28,6 +35,7 @@ $(document).ready(function() {
 });
 
 </script>
+
 </head>
 <body>
 <div class="container">

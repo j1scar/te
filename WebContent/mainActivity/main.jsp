@@ -1,57 +1,26 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE HTML>
 <html>
    <head>
       <title>Music For Everyone</title>
-      <meta charset="utf-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
-      
-	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-	  
-	  <link rel="stylesheet" type="text/css" href="http://kenwheeler.github.io/slick/slick/slick.css" />
-      <link rel="stylesheet" type="text/css" href="http://kenwheeler.github.io/slick/slick/slick-theme.css" />
-      <script type="text/javascript" src="http://kenwheeler.github.io/slick/slick/slick.min.js"></script>
-	  <link rel="stylesheet" href="assets/css/main.css?ver=2" />
+
    </head>
    <body>
-      <!-- Çì´õ -->
-         <header id="header">
-            <h1><a href="#">MFE <span>by</span></a></h1>
-            <div>
-            <button type ="button" class = "btn btn-secondary"><span class = "glyphicon glyphicon-tasks" aria-hidden="true"></span></button>
-            <!--  °Ë»ö ÅØ½ºÆ® -->
-        	 <input class = "search_Text"type="text" id ="search_Text" placeholder = "search...">
-            <button id = "search_Button" type ="button" class = "btn btn-secondary"><span class = "glyphicon glyphicon-search" aria-hidden="true"></span></button>
-            <jsp:include page="navbar.jsp"/>
-            <a class = "global"href="#menu"><span class = "glyphicon glyphicon-th-large" aria-hidden="true"></span></a>
-            </div>
-         </header>
-
-      <!-- ¿·À¸·Î È®ÀåµÇ´Â ³×ºñ°ÔÀÌ¼Ç ¹Ù -->
-         
-         <nav id="menu">
-            <ul class="links">
-               <li><a href="BoardList.bo" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">ÀÚÀ¯°Ô½ÃÆÇ</a></li>
-               <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">¸®ºä°Ô½ÃÆÇ</a></li>
-               <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">°í°´¼¾ÅÍ </a></li>
-            </ul>
-         </nav>
-
+      <!-- í—¤ë” -->
+         <jsp:include page="navbar.jsp"/>
        	<section id="banner">
        		<div class ="inner">
        			<header>
        				<h1>Music For Everyone</h1>
-       				<p>´Ù¾çÇÑ °ø¿¬À» Áñ±â¼¼¿ä</p>
+       				<p>ë‹¤ì–‘í•œ ê³µì—°ì„ ì¦ê¸°ì„¸ìš”</p>
        			</header>
        			<a href="#main" class="button big alt scrolly">Start</a>
        		</div>
        	</section>
         <div id="main">
         <section class = "listWrapper">
-           <h4>¸ÂÃãÇü ÄÜ¼­Æ®</h4>
+           <h4>ë§ì¶¤í˜• ì½˜ì„œíŠ¸</h4>
           <div class="slider">
      		<div class="item"><img src="http://picsum.photos/id/239/550/550"><button type ="button" class = "btn btn-secondary heart"><span class = "glyphicon glyphicon-heart-empty" aria-hidden="true"></span></button></div>
      		<div class="item"><img src="http://picsum.photos/id/240/550/550"><button type ="button" class = "btn btn-secondary heart"><span class = "glyphicon glyphicon-heart-empty" aria-hidden="true"></span></button></div>
@@ -70,7 +39,7 @@
    	     </div>
    	     </section>
 		<section class = "listWrapper">
-		 <h4>ÈüÇÕ ÄÜ¼­Æ®</h4>
+		 <h4>í™í•© ì½˜ì„œíŠ¸</h4>
           <div class="slider">
      		<div class="item"><img src="http://picsum.photos/id/239/550/550"></div>
      		<div class="item"><img src="http://picsum.photos/id/240/550/550"></div>
@@ -204,275 +173,52 @@
             </div>
          </footer>
          
-         <!--  ·Î±×ÀÎ ¸ğ´Ş -->
-         <div class="modal" id="login_Modal">
-    		<div class="modal-dialog">
-     			 <div class="modal-content">
-      
-      			  <!-- Modal Header -->
-      			  <div class="modal-header">
-      			    <h4 class="modal-title">·Î±×ÀÎ</h4>
-     			    <button type="button" class="close" data-dismiss="modal">&times;</button>
-      			  </div>
-        
-        		  <!-- Modal body -->
-       			  <div class="modal-body">
-        			  <div class="container uniform">
-        				<form method = "post" action="loginProcess.net" id = "login_form" >
-						 <fieldset>
-					    	<div class = "form-group">
-								<label for ="login_id" class="modalBlack">¾ÆÀÌµğ</label>
-								<input type="text" class="form-control" id="login_id"
-								   placeholder = "Enter id" name="login_id" required maxLength="30">
-								<span id = "login_id_message"></span>
-							</div>
-							<div class = "form-group">
-								<label for ="modal_pass" class="modalBlack">ºñ¹Ğ¹øÈ£</label>
-								<input type="password" class="form-control" id="login_pass"
-								   placeholder = "Enter password" name="login_pass" required>
-							</div>
-							<div class="6u$ 12u$(small)">
-								<input type="checkbox" id="login_remember" name="login_remember" checked>
-								<label for="login_remember">Remember me</label>
-							</div>
-							
-						</fieldset>
-						</form>
-        			</div>
-    	    	</div>
-        
-        <!-- Modal footer -->
-       			 <div class="modal-footer">
-        			<button id = "login_button" type="submit" class="btn btn-primary" >·Î±×ÀÎ</button>
-         			<button type="button" class="btn btn-danger" data-dismiss="modal">Ãë¼Ò</button>
-         			<button type="button" class="btn btn-info" data-dismiss="modal" data-toggle="modal" data-target="#addMember_Modal"> È¸¿ø°¡ÀÔ</button>
-     			 </div>
-        
-    		  </div>
-    		</div>
-  		</div>
-         
-          <!--  °èÁ¤ ¸ğ´Ş -->
-         <div class="modal" id="account_Modal">
-    		<div class="modal-dialog">
-     			 <div class="modal-content">
-      
-      			  <!-- Modal Header -->
-      			  <div class="modal-header">
-      			    <h4 class="modal-title">°èÁ¤ °ü¸®</h4>
-     			    <button type="button" class="close" data-dismiss="modal">&times;</button>
-      			  </div>
-        
-        		  <!-- Modal body -->
-       			  <div class="modal-body">
-        			  <div class="container uniform">
-        				<form method = "post" action="#" id = "account_form" >
-						 <fieldset>
-					    	<a href="#">My page</a>
-					    	<a href="member_update.net">Á¤º¸ ¼öÁ¤</a>
-					    	<a href="logOut.net">Logout</a>
-         					<button type="button" class="btn btn-danger" data-dismiss="modal">Ãë¼Ò</button>
-						</fieldset>
-						</form>
-        			</div>
-    	    	</div>
-    		  </div>
-    		</div>
-  		</div>
-         
-         <!-- È¸¿ø°¡ÀÔ ¸ğ´Ş -->
-		<div class="modal" id="addMember_Modal">
-    		<div class="modal-dialog">
-     			 <div class="modal-content">
-      
-      			  <!-- Modal Header -->
-      			  <div class="modal-header">
-      			    <h4 class="modal-title">È¸¿ø°¡ÀÔ</h4>
-     			    <button type="button" class="close" data-dismiss="modal">&times;</button>
-      			  </div>
-        
-        		  <!-- Modal body -->
-       			  <div class="modal-body">
-        			  <div class="container">
-        				<form action="joinProcess.net" id = "addMember_form" method="post">
-						 <fieldset>
-					    	<div class = "form-group">
-								<label for ="addMember_id" class="modalBlack">¾ÆÀÌµğ</label>
-								<input type="text" class="form-control" id="addMember_id"
-								   placeholder = "Enter id" name="addMember_id" required>
-								<span id = "addMember_id_message"></span>
-							</div>
-							<div class = "form-group">
-								<label for ="addMember_pass" class="modalBlack">ºñ¹Ğ¹øÈ£</label>
-								<input type="password" class="form-control" id="addMember_pass"
-								   placeholder = "Enter password" name="addMember_pass" required maxLength="12">
-							</div>
-							<div class = "form-group">
-								<label for = "addMember_name" class="modalBlack">ÀÌ¸§</label>
-								<input type="text" id = "addMember_name" class="form-control" name = "addMember_name" placeholder="Enter name" required maxLength="15">
-							</div>
-							<div class = "form-group">
-								<label for = "addMember_address" class="modalBlack">ÁÖ¼Ò</label>
-								<input type="text" id = "addMember_address"  class="form-control" name = "addMember_address" placeholder="Enter address" required>
-							</div>
-							<div class = "form-group">
-								<label for = "addMember_phone_number" class="modalBlack">ÀüÈ­¹øÈ£</label>
-								<input type="text" id = "addMember_phone_number" class="form-control" name = "addMember_phone_number" placeholder="Enter birthday" required>
-							</div>
-							<div class = "form-group">
-								<label class ="modalBlack">¼±È£Àå¸£</label>
-								<input type="checkbox" id="addMember_preference_balad" name="addMember_preference" value = "balad" checked>
-								<label for="addMember_preference_balad">¹ß¶óµå</label>
-								<input type="checkbox" id="addMember_preference_rock" name="addMember_preference" value = "rock">
-								<label for="addMember_preference_rock">¶ô/¸ŞÅ»</label>
-								<input type="checkbox" id="addMember_preference_rap" name="addMember_preference" value ="rap">
-								<label for="addMember_preference_rap">·¦/ÈüÇÕ</label>
-								<input type="checkbox" id="addMember_preference_jazz" name="addMember_preference" value = "jazz">
-								<label for="addMember_preference_jazz">ÀçÁî/¼Ò¿ï</label>
-								<input type="checkbox" id="addMember_preference_classic" name="addMember_preference" value = "classic">
-								<label for="addMember_preference_classic">Å¬·¡½Ä</label>
-								<input type="checkbox" id="addMember_preference_pop" name="addMember_preference" value="pop">
-								<label for="addMember_preference_pop">ÆË</label>
-								<input type="checkbox" id="addMember_preference_edm" name="addMember_preference" value="EDM">
-								<label for="addMember_preference_edm">EDM</label>
-							</div>
-							
-							<div class="u$(small)">
-								<div><label for="male" class = "modalBlack">¼ºº°</label></div>
-								<input type="radio" id = "male" name="addMember_gender" value="1" checked>
-								<label for="male" class ="modalBlack">³²</label>
-								<input type="radio" id = "female" name="addMember_gender" value="2">
-								<label for="female" class ="modalBlack">¿©</label>
-							</div>
-						</fieldset>
-						</form>
-        			</div>
-    	    	</div>
-        
-        <!-- Modal footer -->
-       			 <div class="modal-footer">
-        			<button type="submit" class="btn btn-primary">È¸¿ø°¡ÀÔ</button>
-         			 <button type="button" class="btn btn-danger" data-dismiss="modal">Ãë¼Ò</button>
-     			 </div>
-        
-    		  </div>
-    		</div>
-  		</div>
-      <!-- Scripts -->
-         <script src="assets/js/jquery.min.js"></script>
-         <script src="assets/js/jquery.scrolly.min.js"></script>
-         <script src="assets/js/skel.min.js"></script>
-         <script src="assets/js/util.js"></script>
-         <script src="assets/js/main.js"></script>
+       
+
          <script>
       
       	$(document).ready(function(){
-      		var idCheck = false;
-      		
-      		$('#login_button').click(function() {
-      			$('#login_form').submit();
-      		})
-      		
-      		// ID keyup ÀÌº¥Æ®(Áßº¹ È®ÀÎ)
-			$("#addMember_id").on('keyup', function() {
-				$("addMember_id_message").empty();
-				// \w => [A-Za-z0-9_]
-				var pattern = /^\w+@\w*[.]\w{3}$/;
-				var id =$("#addMember_id").val();
-				
-				if(!pattern.test(id)) {
-					$("#addMember_id_message").css('color', 'red')
-										.html("ÀÌ¸ŞÀÏ Çü½ÄÀ¸·Î ¸ÂÃçÁÖ¼¼¿ä.");
-					idCheck = false;
-					return;
-				}
-				$.ajax({
-					url : "idcheck.net",
-					data : {"id": id},
-					success : function(rdata) {
-						if(rdata == -1) {
-							$("#addMember_id_message").css('color', 'green').html(
-									"»ç¿ë °¡´ÉÇÑ ¾ÆÀÌµğ ÀÔ´Ï´Ù.");
-							idCheck=true;
-						} else {
-							$("#addMember_id_message").css('color', 'blue').html(
-									 "»ç¿ëÁßÀÎ ¾ÆÀÌµğ ÀÔ´Ï´Ù.");
-							idCheck=false;
-						}
-					}//if
-				});//ajax
-			});// ID keyup ÀÌº¥Æ® Á¾·á
-			$('#login_form').submit(function() {
-				loginProcess.net
-			})
-			// È¸¿ø°¡ÀÔ À¯È¿¼º °Ë»ç
-			$('#addMember_form').submit(function() {
-				if($('#addMember_id').val()=="") {
-					alert("ID¸¦ ÀÔ·ÂÇÏ¼¼¿ä");
-					$('#addMember_id').focus();
-					return false;
-				}
-				if(idCheck == false) {
-					alert("ID Áßº¹µÇ¾ú½À´Ï´Ù.");
-					return false;
-				}
-				
-				if($('#addMember_pass').val()=="") {
-					alert("ºñ¹Ğ¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä");
-					$('#addMember_pass').focus();
-					return false;
-				}
-				if($('#addMember_name').val()=="") {
-					alert("ÀÌ¸§À» ÀÔ·ÂÇÏ¼¼¿ä");
-					$('#addMember_name').focus();
-					return false;
-				}
-				if($('#addMember_age').val() =="") {
-					alert("³ªÀÌ¸¦ ÀÔ·ÂÇÏ¼¼¿ä.");
-					$('#addMember_age').focus();
-					return false;
-				}
-				if(!$.isNumeric($("input[name='age']").val())) {
-					alert("³ªÀÌ´Â ¼ıÀÚ·Î ÀÔ·ÂÇÏ¼¼¿ä");
-					$("input[name='age']").val('');
-					$("input[name='age']").focus();
-					return false;
-				}
-				
-				if($('input[type=radio]:checked').length==0) {
-					alert("¼ºº°À» ¼±ÅÃÇÏ¼¼¿ä");
-					return false;
-				}
-			
-			}); //È¸¿ø°¡ÀÔ À¯È¿¼º °Ë»ç Á¾·á
-			
-			
-			// °Ë»ö ¹öÆ° ÀÌº¥Æ®
-			$('#search_Text').hide();
-			
-			$('#search_Button').click(function() {
-				$('#search_Text').toggle();
-				$('#search_Button').hide();
-				$('#search_Text').focus();
-			});
-			$('#search_Text').blur(function() {
-				$('#search_Button').show();
-				$('#search_Text').val('');
-				$('#search_Text').hide();
-			});
-			// °Ë»ö ÀÌº¥Æ® Á¾·á
-			
-			//½½¸¯ ÀÌº¥Æ®
+			//ìŠ¬ë¦­ ì´ë²¤íŠ¸
 		     $.noConflict();
 		
 		     $('.slider').slick({
 		    	  centerMode: true,
-		    	  slidesToShow: 7,
+		    	  slidesToShow: 9,
 		    	  infinite :true,
-		    	  slidesToscroll : 6,
+		    	  slidesToscroll : 8,
 		    	  responsive: [
+		    		{
+				       breakpoint: 1600,
+				       settings: {
+				    	 arrows: false,
+				    	 centerMode: true,
+				    	 infinite :true,
+				    	 slidesToShow: 8,
+				    	 slidesToscroll : 7
+				       }
+				    },
+		    		{
+			    	   breakpoint: 1400,
+			    	   settings: {
+			    	     arrows: false,
+			    	     centerMode: true,
+			    	     infinite :true,
+			    	     slidesToShow: 7,
+			    	     slidesToscroll : 6
+			    	   }
+			    	 },
+			    	 {
+				       breakpoint: 1200,
+				       settings: {
+				    	 arrows: false,
+				         centerMode: true,
+				    	 infinite :true,
+				    	 slidesToShow: 6,
+				    	 slidesToscroll : 5
+				       }
+				    },
 		    	    {
-		    	      breakpoint: 980,
+		    	      breakpoint: 1000,
 		    	      settings: {
 		    	        arrows: false,
 		    	        centerMode: true,
@@ -482,17 +228,57 @@
 		    	      }
 		    	    },
 		    	    {
-		    	      breakpoint: 620,
+			    	  breakpoint: 1000,
+			    	  settings: {
+			    	    arrows: false,
+			    	    centerMode: true,
+			    	    infinite :true,
+			    	    slidesToShow: 5,
+			    	    slidesToscroll : 4
+			    	  }
+			    	},
+		    	    {
+		    	      breakpoint: 850,
 		    	      settings: {
 		    	        arrows: false,
 		    	        centerMode: true,
 		    	        infinite :true,
-		    	        slidesToShow: 3,
-		    	        slidesToscroll : 2
+		    	        slidesToShow: 4,
+		    	        slidesToscroll : 3
 		    	      }
-		    	    }
+		    	    },
+		    	    {
+			    	  breakpoint: 700,
+			    	  settings: {
+			    	    arrows: false,
+			    	    centerMode: true,
+			    	    infinite :true,
+			    	    slidesToShow: 3,
+			    	    slidesToscroll : 3
+			    	  }
+			    	},
+			    	{
+				      breakpoint: 550,
+				      settings: {
+				        arrows: false,
+				    	centerMode: true,
+				    	infinite :true,
+				    	slidesToShow:2,
+				    	slidesToscroll : 3
+				      }
+				    },
+				    {
+					  breakpoint: 400,
+					  settings: {
+					    arrows: false,
+					    centerMode: true,
+					    infinite :true,
+					    slidesToShow: 1,
+					    slidesToscroll : 3
+					  }
+					}  
 		    	  ]
-		    });  //½½¸¯ ÀÌº¥Æ® Á¾·á
+		    });  //ìŠ¬ë¦­ ì´ë²¤íŠ¸ ì¢…ë£Œ
 		     
       	});
          </script>

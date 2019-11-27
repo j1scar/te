@@ -72,11 +72,19 @@ public class FrontController extends HttpServlet {
     			e.printStackTrace();
     		}
     	} else if(command.equals("/logOut.net")) {
+    		action = new LogoutAction();
+    		try {
+    			forward= action.execute(request, response);
+    		} catch(Exception e) {
+    			e.printStackTrace();
+    		}
+    		/*
     		HttpSession session = request.getSession();
     		session.invalidate();
     		forward =new ActionForward();
     		forward.setRedirect(false);
     		forward.setPath("mainActivity/main.jsp");
+    		*/
     	} else if(command.equals("/member_update.net")) {
     		action = new Member_updateAction();
     		try {
@@ -92,7 +100,26 @@ public class FrontController extends HttpServlet {
     			e.printStackTrace();
     		}
     	} else if(command.equals("/member_list.net")) {
-    		
+    		action = new ListAction();
+    		try {
+    			forward = action.execute(request, response);
+    		} catch(Exception e) {
+    			e.printStackTrace();
+    		}
+    	} else if(command.equals("/member_info.net")) {
+    		action = new Member_infoAction();
+    		try {
+    			forward = action.execute(request, response);
+    		}catch(Exception e) {
+    			e.printStackTrace();
+    		}
+    	} else if(command.equals("/member_delete.net")) {
+    		action = new Member_deleteAction();
+    		try {
+    			forward= action.execute(request,  response);
+    		} catch(Exception e) {
+    			e.printStackTrace();
+    		}
     	}
     	
     	if(forward !=null) {

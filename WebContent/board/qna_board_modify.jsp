@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<jsp:include page="header.jsp"/>
+<jsp:include page ="../mainActivity/navbar.jsp"/>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>

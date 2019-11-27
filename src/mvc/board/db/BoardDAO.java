@@ -147,7 +147,7 @@ public class BoardDAO {
 		System.out.println("읽음 수 업뎃 결과 = " + result);
 	}
 	
-	public BoardBean getDetail(int num) {
+	public BoardBean getDetail(int id) {
 		BoardBean board = new BoardBean();
 		
 		try {
@@ -155,7 +155,7 @@ public class BoardDAO {
 		System.out.println("getConnection");
 		
 		pstmt = con.prepareStatement("select * from board where board_num = ?");
-		pstmt.setInt(1, num);
+		pstmt.setInt(1, id);
 		rs = pstmt.executeQuery();
 		
 		if (rs.next()) {
@@ -298,12 +298,13 @@ public class BoardDAO {
 			con = ds.getConnection();
 			System.out.println("getConnection");
 			//원문의 경우 lev, seq 필드값은 0이다.
-			pstmt = con.prepareStatement("INSERT INTO board(board_num, board_name, board_pass, board_subject, board_content, board_re_ref, board_re_lev, board_re_seq, board_readcount, board_date) VALUES (board_seq.nextval, ?, ?, ?, ?,board_seq.nextval, 0, 0, 0 , sysdate)");
+			pstmt = con.prepareStatement("INSERT INTO board(board_num, board_name, board_pass, board_subject, board_content, board_file, board_re_ref, board_re_lev, board_re_seq, board_readcount, board_date) VALUES (board_seq.nextval, ?, ?, ?, ?, ?, board_seq.nextval, 0, 0, 0 , sysdate)");
 	
 			pstmt.setString(1, b.getBOARD_NAME());
 			pstmt.setString(2, b.getBOARD_PASS());
 			pstmt.setString(3, b.getBOARD_SUBJECT());
 			pstmt.setString(4, b.getBOARD_CONTENT());
+			pstmt.setString(5, b.getBOARD_FILE());
 			
 			
 			result = pstmt.executeUpdate();

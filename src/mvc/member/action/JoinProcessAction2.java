@@ -27,9 +27,15 @@ public class JoinProcessAction2  implements Action {
 			}
 			preference += ",";
 		}
+		System.out.println(id);
+		System.out.println(pass);
+		System.out.println(name);
+		System.out.println(address);
+		System.out.println(phone_number);
+		System.out.println(preference);
 		
-		String gender = request.getParameter("gender");
-		
+		String gender = request.getParameter("addMember_gender");
+		System.out.println(gender);
 		Member m = new Member();
 		m.setId(id);
 		m.setPassword(pass);
