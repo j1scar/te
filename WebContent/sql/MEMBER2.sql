@@ -1,7 +1,4 @@
 drop table member;
---1. index.jsp에서 시작
---2. 관리자 계정 admin, 비번 1234 를 만듭니다.
---3. 사용작 ㅖ정을 3개 만든다.
 
 create table member(
 	member_id varchar2(30),
@@ -13,6 +10,7 @@ create table member(
 	member_gender varchar2(2) not null,
 	primary key(member_id)
 );
-insert into member values('admin@mfe.com','1234','관리자','주소없음','폰번호','선호장르','1');
-insert into member values('fddfddddd@mfe.com','1234','민민','주소없음','폰번호','','1');
+insert into member values('admin@mfe.com','1234','愿�由ъ옄','二쇱냼�뾾�쓬','�룿踰덊샇','�꽑�샇�옣瑜�','1');
+insert into member values('fddfddddd@mfe.com','1234','誘쇰��','二쇱냼�뾾�쓬','�룿踰덊샇','','1');
+insert into member values('fddfddddd@mfe.com','1234','誘쇰��','二쇱냼�뾾�쓬','�룿踰덊샇','','1');
 select * from member;
