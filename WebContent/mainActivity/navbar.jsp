@@ -96,13 +96,13 @@
   		</div>
          
           <!--  계정 모달 -->
-         <div class="modal" id="account_Modal">
-    		<div class="modal-dialog">
+         <div class="modal right fade" id="account_Modal" tabindex="-1" role = "dialog" aria-labelledby="accountLabel">
+    		<div class="modal-dialog" role = "document">
      			 <div class="modal-content">
       
       			  <!-- Modal Header -->
       			  <div class="modal-header">
-      			    <h4 class="modal-title">계정 관리</h4>
+      			    <h4 class="modal-title" id= "accountLabel">계정 관리</h4>
      			    <button type="button" class="close" data-dismiss="modal">&times;</button>
       			  </div>
         
@@ -111,10 +111,15 @@
         			  <div class="container uniform">
         				<form method = "post" action="#" id = "account_form" >
 						 <fieldset>
-					    	<a href="#">My page</a>
-					    	<a href="member_update.net">정보 수정</a>
-					    	<a href="logOut.net">Logout</a>
-         					<button type="button" class="btn btn-danger" data-dismiss="modal">취소</button>
+						 	<div class = "accountDiv">
+					    		<a href="#">My page</a>
+					    	</div>
+					    	<div class = "accountDiv">
+					    		<a href="member_update.net">정보 수정</a>
+					    	</div>
+					    	<div class = "accountDiv">
+					    		<a href="logOut.net">Logout</a>
+         					</div>
 						</fieldset>
 						</form>
         			</div>
@@ -210,6 +215,8 @@
          <script src="assets/js/main.js"></script>
 <script>
 $(function() {
+	
+	
 	$('#adminMode_Button').click(function() {
 		location.href='member_list.net';
 		

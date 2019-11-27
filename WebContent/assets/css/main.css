@@ -3789,6 +3789,38 @@
 	.modal-title {
 		color : black;
 	}
+	
+	.modal.right.fade .modal-dialog {
+		right : -320px;
+		-webkit-transition: opacity 0.3s linear, right 0.3s ease-out;
+		   -moz-transition: opacity 0.3s linear, right 0.3s ease-out;
+		     -o-transition: opacity 0.3s linear, right 0.3s ease-out;
+		        transition: opacity 0.3s linear, right 0.3s ease-out;
+	}
+	.modal.right.fade.in .modal-dialog {
+		right: 0;
+	}
+	
+	.modal.right .modal-dialog {
+		position: absolute !important;
+		
+		margin-top : 5% !important;
+		margin-right : 5% !important;
+		width: 20% !important;
+		height: 30% !important;
+		-webkit-transform: translate3d(0%, 0, 0);
+		    -ms-transform: translate3d(0%, 0, 0);
+		     -o-transform: translate3d(0%, 0, 0);
+		        transform: translate3d(0%, 0, 0);
+	}
+
+	.modal.right .modal-content {
+		height: 100%;
+		overflow-y: auto;
+	}
+	.accountDiv {
+		background : #fbc65a;
+	}
 	/* 검색버튼 css */
 	.hidden {
 		visibility : hidden;

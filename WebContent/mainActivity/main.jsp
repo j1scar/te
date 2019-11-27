@@ -190,7 +190,6 @@
 		    		{
 				       breakpoint: 1600,
 				       settings: {
-				    	 arrows: false,
 				    	 centerMode: true,
 				    	 infinite :true,
 				    	 slidesToShow: 8,
@@ -200,7 +199,6 @@
 		    		{
 			    	   breakpoint: 1400,
 			    	   settings: {
-			    	     arrows: false,
 			    	     centerMode: true,
 			    	     infinite :true,
 			    	     slidesToShow: 7,
@@ -210,7 +208,6 @@
 			    	 {
 				       breakpoint: 1200,
 				       settings: {
-				    	 arrows: false,
 				         centerMode: true,
 				    	 infinite :true,
 				    	 slidesToShow: 6,
@@ -220,7 +217,6 @@
 		    	    {
 		    	      breakpoint: 1000,
 		    	      settings: {
-		    	        arrows: false,
 		    	        centerMode: true,
 		    	        infinite :true,
 		    	        slidesToShow: 5,
@@ -228,19 +224,8 @@
 		    	      }
 		    	    },
 		    	    {
-			    	  breakpoint: 1000,
-			    	  settings: {
-			    	    arrows: false,
-			    	    centerMode: true,
-			    	    infinite :true,
-			    	    slidesToShow: 5,
-			    	    slidesToscroll : 4
-			    	  }
-			    	},
-		    	    {
 		    	      breakpoint: 850,
 		    	      settings: {
-		    	        arrows: false,
 		    	        centerMode: true,
 		    	        infinite :true,
 		    	        slidesToShow: 4,
@@ -250,7 +235,6 @@
 		    	    {
 			    	  breakpoint: 700,
 			    	  settings: {
-			    	    arrows: false,
 			    	    centerMode: true,
 			    	    infinite :true,
 			    	    slidesToShow: 3,
