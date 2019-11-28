@@ -6,7 +6,7 @@
 <head>
 <jsp:include page ="../mainActivity/navbar.jsp"/>
 <style>
-.table {
+	.table {
 		background-color : white !important;
 	}
 	th, td {
@@ -16,21 +16,60 @@
 		display : flex;
 		justify-content:center; /* 가운데 정렬 */
 	}
+	.container {
+	
+		margin : auto;
+		margin-top : 3%;
+		width : 70%;
+		height : 70%;
+	}
 </style>
 <script>
 	$(function() {
 		$('#addBoard_Button').click(function() {
 			location.href ="BoardWrite.bo";
 		});
+		
+		$.ajax({
+			type:"POST",
+			data : data,
+			url :"BoardList.bo",
+			dataType : "json",
+			cache : false,
+			success : function(data) {
+				$("#viewcount").val(data.limit);
+				$("table").find("font").text("글 개수 : " + data.listcount);
+				
+				if(data.listcount > 0) {
+					$("tbody").remove();
+					var num = data.listcount-(data.page-1)*data.limit;
+					console.log(num);
+					output ="<tbody>";
+				}
+			}
+			
+		})
 	});
 </script>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-<div class = "container"></div>
-<%-- 게시글이 있는 경우 --%>
 <c:if test ="${listcount > 0 }">
+	<div class = "rows">
+		<span>줄보기</span>
+		<select class = "form-control"  id = "viewcount">
+			<option value = "1">0</option>
+			<option value = "3">3</option>
+			<option value = "5">5</option>
+			<option value = "7">7</option>
+			<option value = "10" selected>10</option>
+		</select>
+	</div>
+
+<div class = "container">
+<%-- 게시글이 있는 경우 --%>
+
 	<table class = "table">
 		<tr>
 			<th colspan = "3">MVC 게시판 - list</th>
@@ -84,7 +123,7 @@
 		</tr>
 	</c:forEach>
 	</table>
-	
+	</div>
 	<div class="center-block">
          <div class="row">
             <div class="col">

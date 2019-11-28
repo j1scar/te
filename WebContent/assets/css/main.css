@@ -3833,7 +3833,6 @@
 	.slick-slide img {
 		width : 150px;
 		height : 150px;
-		
 	}
 	.item {
 	position : relative;
@@ -3858,6 +3857,14 @@
 	.global {
 		color: white;
 		margin-right : 10px;
+	}
+	
+	/* 색 */
+	.background_white {
+		background-color : white;
+	}
+	.color_black {
+		color : black !important; 
 	}
 /* Main */
 	

@@ -3,16 +3,19 @@
 <%@ taglib prefix ="c"  uri = "http://java.sun.com/jsp/jstl/core" %>
       <meta charset="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <script src="http://code.jquery.com/jquery-latest.js"></script>
       
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+ 
  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+ 
+
 
 	  
 	  <link rel="stylesheet" type="text/css" href="http://kenwheeler.github.io/slick/slick/slick.css" />
       <link rel="stylesheet" type="text/css" href="http://kenwheeler.github.io/slick/slick/slick-theme.css" />
       <script type="text/javascript" src="http://kenwheeler.github.io/slick/slick/slick.min.js"></script>
-	  <link rel="stylesheet" href="assets/css/main.css?ver=4" />
+	  <link rel="stylesheet" href="assets/css/main.css?ver=5" />
  
  <header id="header">
    <h1><a href="main.net">MFE <span>by</span></a></h1>
@@ -256,9 +259,10 @@ $(function() {
 			}//if
 		});//ajax
 	});// ID keyup 이벤트 종료
+	
 	$('#login_form').submit(function() {
-		loginProcess.net
-	})
+		location.href='loginProcess.net';
+	});
 	// 회원가입 유효성 검사
 	$('#addMember_form').submit(function() {
 		if($('#addMember_id').val()=="") {

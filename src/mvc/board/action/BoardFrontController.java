@@ -114,7 +114,18 @@ public class BoardFrontController extends HttpServlet {
              } catch (Exception e) {
                 e.printStackTrace();
              }
-          } 
+          } else if(command.equals("/BoardDelete.bo")) {
+        	  forward = new ActionForward();
+        	  forward.setRedirect(false);//포워딩 방식으로 주소가 바뀌지 않음.
+        	  forward.setPath("board/qna_board_delete.jsp");
+          } else if(command.equals("/BoardDeleteAction.bo")) {
+        	  action = new BoardDeleteAction();
+        	  try {
+        		  forward = action.execute(request, response);
+        	  } catch(Exception e) {
+        		  e.printStackTrace();
+        	  }
+          }
     	
     	if(forward !=null) {
     		if(forward.isRedirect()) { //리다이렉트 된다.

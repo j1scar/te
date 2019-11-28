@@ -318,7 +318,63 @@ public class BoardDAO {
 		return (result==1) ? true:false;
 		
 	}
-	
+	public boolean  boardDelete(int num) {
+	      
+	      String board_sql = "select BOARD_RE_REF, BOARD_RE_LEV, BOARD_RE_SEQ from board where BOARD_NUM = ?";
+	      String board_delete_sql =
+	            "delete from board "
+	            + "where BOARD_RE_REF = ? "
+	            + "and BOARD_RE_LEV >= ? "
+	            + "and BOARD_RE_SEQ >= ? "
+	            + "and BOARD_RE_SEQ < (" + 
+	                                       "nvl((SELECT min(board_re_seq) from BOARD "
+	                                       + "where BOARD_RE_REF = ? "
+	                                       + "and BOARD_RE_LEV = ? "
+	                                       + "and BOARD_RE_SEQ > ?)," + 
+	                                        "(select max(BOARD_RE_SEQ)+1 from BOARD "
+	                                        + "where BOARD_RE_REF = ?)"
+	                                         + ")"
+	                                    + ")";
+	        
+	      try {
+	         con = ds.getConnection();
+	         pstmt = con.prepareStatement(board_sql);
+	         pstmt.setInt(1,  num);
+	            rs = pstmt.executeQuery();
+	           
+	            int BOARD_RE_REF=0, BOARD_RE_LEV=0, BOARD_RE_SEQ=0;
+
+	         System.out.println("연결 성공");         
+	         if(rs.next()) {
+	            BOARD_RE_REF=rs.getInt("BOARD_RE_REF");
+	            BOARD_RE_LEV=rs.getInt("BOARD_RE_LEV");
+	            BOARD_RE_SEQ=rs.getInt("BOARD_RE_SEQ");
+	            
+	            pstmt = con.prepareStatement(board_delete_sql);
+	            pstmt.setInt(1, BOARD_RE_REF);
+	            pstmt.setInt(2, BOARD_RE_LEV);
+	            pstmt.setInt(3, BOARD_RE_SEQ);
+	            
+	            pstmt.setInt(4, BOARD_RE_REF);
+	            pstmt.setInt(5, BOARD_RE_LEV);
+	            pstmt.setInt(6, BOARD_RE_SEQ);
+	            
+	            pstmt.setInt(7, BOARD_RE_REF);
+	            
+	            //쿼리 실행후 삭제된 로우(레코드) 갯수가 반환됩니다.
+	            int result = pstmt.executeUpdate();
+	            System.out.println(result + "개 삭제되었습니다.");
+	            if(result>=1)
+	               return true;
+	         }               
+	         } catch (Exception e) {
+	            System.out.println("boardDelete() 에러 : "+ e);
+	            e.printStackTrace();
+	         } finally {
+	          close();                        
+	      }            
+	      return false;      
+	   } //boardDelete() end
 	private void close() {
 		try {
 			if(rs != null) {rs.close(); rs=null;}

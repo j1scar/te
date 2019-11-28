@@ -106,11 +106,31 @@ public class MemberDAO {
 		}
 		return result;
 	}
-	public int getListCount() {
+	public int getListCount(int search_field, String search_word) {
 		int x = 0;
+		String field = "";
+		switch(search_field) {
+		case 0:
+			field = " where member_id like ";
+			field += "'%"+search_word+"%'";
+			break;
+		case 1:
+			field = " where member_name like ";
+			field += "'%"+search_word+"%'";
+			break;
+		case 2:
+			field = " where member_address like ";
+			field += "'%"+search_word+"%'";
+			break;
+		case 3:
+			field = " where member_gender like ";
+			field += "'%"+search_word+"%'";
+			break;
+		}
+		System.out.println(" getListCount field = " + field);
 		try { 
 			con = ds.getConnection();
-			pstmt= con.prepareStatement("select count(*) from member");
+			pstmt= con.prepareStatement("select count(*) from member "+field);
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
 				x = rs.getInt(1);
@@ -123,13 +143,40 @@ public class MemberDAO {
 		}
 		return x;
 	}
-	public List<Member> getList(int page, int limit) {
+	public List<Member> getList(int search_field, String search_word, int page, int limit) {
 		List<Member> list = new ArrayList<Member>();
+		String field = "";
+		switch(search_field) {
+		case 0:
+			field = " and member_id like ";
+			field += "'%"+search_word+"%'";
+			break;
+		case 1:
+			field = " and member_name like ";
+			field += "'%"+search_word+"%'";
+			break;
+		case 2:
+			field = " and member_address like ";
+			field += "'%"+search_word+"%'";
+			break;
+		case 3:
+			field = " and member_gender like ";
+			search_word = (search_word.equals("남")) ? "1":"2";
+			// 성별이 남이 아닐 경우 여자로 값을 넣어줌(유효성으로 필터해야할 필요 있음)
+			field += "'%"+search_word+"%'";
+			
+			break;
+		}
+		System.out.println("field = " + field);
+		
+		
 		try {
 			con = ds.getConnection();
 			
 			String sql = "select * from (select b.*, rownum rnum "
-					+                 " from (select * from member where member_id != 'admin@mfe.com' order by member_id) b "
+					+                 " from (select * from member where member_id != 'admin@mfe.com' "
+					+                   field
+					+ "                 order by member_id) b "
 					+ 				   ") "
 					+ "         where rnum >= ? and rnum<=? ";
 			pstmt = con.prepareStatement(sql);

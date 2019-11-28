@@ -18,16 +18,29 @@ public class ListAction implements Action {
 		List<Member> list = new ArrayList<Member>();
 		
 		int page = 1;
-		int limit = 5;
+		int limit = 3;
+		int search_field = -1; //널값 안나게 초기화해준것(case에 없어야함)
+		String search_word ="";
 		
 		if(request.getParameter("page")!=null) {
 			page =Integer.parseInt(request.getParameter("page"));
 		}
 		System.out.println("넘오온 페이지" + page);
 		
-		int listcount = mdao.getListCount();
 		
-		list = mdao.getList(page, limit);
+		if(request.getParameter("search_field") != null) {
+			search_field = Integer.parseInt(request.getParameter("search_field"));
+			System.out.println("검색 : " + search_field);
+		} 
+		if(request.getParameter("search_word") != null) {
+			search_word = request.getParameter("search_word");
+			System.out.println("검색 내용 : " + search_word);
+		}
+		
+		int listcount = mdao.getListCount(search_field, search_word);
+		System.out.println("리카 = " + listcount);
+		
+		list = mdao.getList(search_field, search_word, page, limit);
 		
 		int maxpage = (listcount+limit-1)/limit;
 		System.out.println("총 페이지 수 = " +maxpage);
@@ -44,7 +57,12 @@ public class ListAction implements Action {
 		request.setAttribute("endpage", endpage);
 		request.setAttribute("listcount", listcount);
 		request.setAttribute("totallist", list);
-		
+		request.setAttribute("search_word", search_word);
+		if(request.getParameter("search_field") == null) {
+			request.setAttribute("search_field", 0);
+		} else {
+			request.setAttribute("search_field", request.getParameter("search_field"));
+		}
 		
 		forward.setRedirect(false);
 		forward.setPath("member/member_list.jsp");

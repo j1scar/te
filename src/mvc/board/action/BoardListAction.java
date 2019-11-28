@@ -6,6 +6,10 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+
 import mvc.board.db.BoardBean;
 import mvc.board.db.BoardDAO;
 import mvc.member.action.Action;
@@ -26,6 +30,11 @@ public class BoardListAction implements Action{
 			page=Integer.parseInt(request.getParameter("page"));
 		}
 		System.out.println("넘어온 페이지 = " + page);
+		
+		if(request.getParameter("limit") != null) {
+			limit = Integer.parseInt(request.getParameter("limit"));
+		}
+		System.out.println("넘어온 limit = " + limit);
 		
 		//총 리스트 수를 받아온다.
 		int listcount = boarddao.getListCount();
@@ -74,25 +83,54 @@ public class BoardListAction implements Action{
 		 * */
 		if(endpage > maxpage) endpage = maxpage;
 		
-		request.setAttribute("page", page); //현재 페이지 수
-		request.setAttribute("maxpage", maxpage); //최대 페이지 수
+		String state = request.getParameter("state");
 		
-		//현재 페이지에 표시할 첫 페이지 수
-		request.setAttribute("startpage", startpage);
-		
-		//현재 페이지에 표시할 끝 페이지 수
-		request.setAttribute("endpage", endpage);
-		
-		request.setAttribute("listcount", listcount); //총 글의 수
-		
-		//해당 페이지의 글 목록을 갖고 있는 리스트
-		request.setAttribute("boardlist", boardlist);
-		
-		ActionForward forward = new ActionForward();
-		forward.setRedirect(false);
-		
-		//글 목록 페이지로 이동하기 위해 경로를 설정합니다.
-		forward.setPath("board/qna_board_list.jsp");
-	 	return forward; //BoardFrontController.java로 리턴된다.
+		if(state == null) {
+			System.out.println("state=null");
+			request.setAttribute("page", page); //현재 페이지 수
+			request.setAttribute("maxpage", maxpage); //최대 페이지 수
+			
+			//현재 페이지에 표시할 첫 페이지 수
+			request.setAttribute("startpage", startpage);
+			//현재 페이지에 표시할 끝 페이지 수
+			request.setAttribute("endpage", endpage);
+
+			request.setAttribute("listcount", listcount); //총 글의 수
+			
+			//해당 페이지의 글 목록을 갖고 있는 리스트
+			request.setAttribute("boardlist", boardlist);
+			request.setAttribute("limit", limit);
+			
+			ActionForward forward = new ActionForward();
+			forward.setRedirect(false);
+			
+			//글 목록 페이지로 이동하기 위해 경로를 설정합니다.
+			forward.setPath("board/qna_board_list.jsp");
+		 	return forward; //BoardFrontController.java로 리턴된다.
+		} else {
+			System.out.println("state=ajax");
+			JsonObject object = new JsonObject();
+			object.addProperty("page", page);
+			object.addProperty("maxpage",maxpage);
+			object.addProperty("startpage", startpage);
+			object.addProperty("endpage", endpage);
+			object.addProperty("listcount",listcount);
+			object.addProperty("limit", limit);
+			// List => JsonArray
+			JsonArray je = new Gson().toJsonTree(boardlist).getAsJsonArray();
+			
+			// List => JsonElement
+			// JsonElement je = new Gson().toJsonTree(boardlist);
+			System.out.println("je = " + je);
+			object.add("boardlist", je);
+			
+			Gson gson = new Gson();
+			String json = gson.toJson(object);
+			
+			response.setContentType("text/html;charset=UTF-8");
+			response.getWriter().append(json);
+			System.out.println(json);
+			return null;
+		}
 }
 }

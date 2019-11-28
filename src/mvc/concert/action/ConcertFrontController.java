@@ -16,7 +16,7 @@ import mvc.member.action.IdCheckAction;
 /**
  * Servlet implementation class BoardFrontController
  */
-@WebServlet("*.bo")
+@WebServlet("*.co")
 public class ConcertFrontController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
