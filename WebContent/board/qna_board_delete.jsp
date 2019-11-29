@@ -40,8 +40,8 @@
                         class="form-control" placeholder="Enter password"
                         name="BOARD_PASS" id="board_pass">
                   </div>
-                  <button type="submit" class="btn btn-primary" >Submit</button>
-                   <button id = "can" type="button" class="btn btn-danger">Close</button>
+                  <button type="submit" class="btn btn-primary" >확인</button>
+                   <button id = "can" type="button" class="btn btn-danger">취소</button>
                </form>
             </div>
          </div>

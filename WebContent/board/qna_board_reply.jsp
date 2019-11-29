@@ -36,7 +36,7 @@ img{width:20px}
     </div>
     <div class="form-group">
       <label for="BOARD_SUBJECT">제목</label>
-        <input name="BOARD_SUBJECT" id="board_subject" type="text" value="Re:${boarddata.BOARD_SUBJECT}" class="form-control" readOnly>
+        <input name="BOARD_SUBJECT" id="board_subject" type="text" value="${boarddata.BOARD_SUBJECT}" class="form-control" readOnly>
     </div>
     <div class="form-group">
       <label for="board_content">내용</label>

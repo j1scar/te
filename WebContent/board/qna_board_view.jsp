@@ -12,10 +12,14 @@
 <title>Insert title here</title>
 <style>
 span{width:20px;}
+.no {
+	display : none;
+}
 </style>
 </head>
 <body>
 <div class="container">
+	
 	<table class= "table table-bordered">
 		<tr>
 			<th colspan="2">MVC 게시판-view페이지</th>
@@ -40,7 +44,7 @@ span{width:20px;}
 						${boarddata.BOARD_FILE}</a></c:if>
 			</td>
 		</tr>
-	
+		
 		<tr>
 			<td colspan ="2" class="center">
 				<a href = "BoardReplyView.bo?num=${boarddata.BOARD_NUM}">
@@ -51,17 +55,48 @@ span{width:20px;}
 					<button class = "btn btn-info">수정</button>
 				</a>
 				
+				<a href = "#">
+				<button class = "btn btn-danger" data-toggle = "modal" data-target = "#myModal">삭제</button>
+				</a>
+				<%--앵커로 넘기는 방법
 				<a href ="BoardDelete.bo?num=${boarddata.BOARD_NUM}">
 					<button class= " btn btn-danger">삭제</button>
 				</a>
+				 --%>
 			</c:if>	
 				<a href="BoardList.bo">
 					<button class="btn btn-primary">목록</button>
 				</a>
+				<span id = "no">${boarddata.BOARD_PASS}</span>
 			</td>
 		</tr>
 	</table>
-		
+	
+	<%-- delete 모달 --%>
+<div class="modal" id="myModal">
+      <div class="modal-dialog">
+         <div class="modal-content">
+
+
+            <!-- Modal body -->
+            <div class="modal-body">
+               <form name="deleteForm" action="BoardDeleteAction.bo"
+                  method="post">
+                  <input type="hidden" name="num" value="${param.num}">
+
+                  <div class="form-group">
+                     <label for="pwd">비밀번호</label> 
+                        <input type="password"
+                        class="form-control" placeholder="Enter password"
+                        name="BOARD_PASS" id="board_pass">
+                  </div>
+                  <button type="submit" class="btn btn-primary" >Submit</button>
+                   <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+               </form>
+            </div>
+         </div>
+      </div>
+   </div>		
 </div>
 </body>
 </html>

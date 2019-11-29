@@ -111,6 +111,7 @@ public class BoardDAO {
 			
 			if(rs.next()) {
 				if(pass.equals(rs.getString("BOARD_PASS"))) {
+					System.out.println(pass + "와 " + rs.getString("BOARD_PASS") + "는 일치");
 					return true;
 				}
 			}
@@ -273,14 +274,15 @@ public class BoardDAO {
 	}
 	public boolean boardModify(BoardBean modifyboard) {
 		String sql = "update board "
-				   + "set    BOARD_SUBJECT = ?, BOARD_CONTENT = ? "
+				   + "set    BOARD_SUBJECT = ?, BOARD_CONTENT = ?, BOARD_FILE =? "
 				   + "where  BOARD_NUM = ? ";
 		try {
 			con = ds.getConnection();
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1,  modifyboard.getBOARD_SUBJECT());
 			pstmt.setString(2,  modifyboard.getBOARD_CONTENT());
-			pstmt.setInt(3,  modifyboard.getBOARD_NUM());
+			pstmt.setString(3,  modifyboard.getBOARD_FILE());
+			pstmt.setInt(4,  modifyboard.getBOARD_NUM());
 			int result = pstmt.executeUpdate();
 			if(result == 1)
 				return true;

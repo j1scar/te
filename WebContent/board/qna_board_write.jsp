@@ -24,17 +24,7 @@ form {
 }
 
 </style>
-<script>
-$(document).ready(function() {
-	$('#upfile').change(function() {
-		$('#filevalue').val('');
-		console.log($(this).val());
-		var inputfile=$(this).val().split('\\');
-		$('#filevalue').text(inputfile[inputfile.length-1]);
-	});
-});
-
-</script>
+<script src="js/writeform.js" charset="UTF-8"></script>
 
 </head>
 <body>

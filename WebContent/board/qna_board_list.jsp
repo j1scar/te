@@ -23,43 +23,32 @@
 		width : 70%;
 		height : 70%;
 	}
+	.rows {
+		margin-top : 2%;
+		width : 24%;
+		float : right;
+		margin-bottom : 2%;
+	}
+	#viewcount {
+		display : inline;
+		width : 30%;
+		height : 28px;
+	}
+	.sp {
+		display : inline;
+	}
 </style>
-<script>
-	$(function() {
-		$('#addBoard_Button').click(function() {
-			location.href ="BoardWrite.bo";
-		});
-		
-		$.ajax({
-			type:"POST",
-			data : data,
-			url :"BoardList.bo",
-			dataType : "json",
-			cache : false,
-			success : function(data) {
-				$("#viewcount").val(data.limit);
-				$("table").find("font").text("글 개수 : " + data.listcount);
-				
-				if(data.listcount > 0) {
-					$("tbody").remove();
-					var num = data.listcount-(data.page-1)*data.limit;
-					console.log(num);
-					output ="<tbody>";
-				}
-			}
-			
-		})
-	});
-</script>
+ <script src="js/boardlist.js"></script>
+
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
 <c:if test ="${listcount > 0 }">
-	<div class = "rows">
-		<span>줄보기</span>
-		<select class = "form-control"  id = "viewcount">
-			<option value = "1">0</option>
+	<div class = "rows ">
+		<span class = "sp">목록 갯수</span>
+		<select class = "form-control"  id = "viewcount" >
+			<option value = "1">1</option>
 			<option value = "3">3</option>
 			<option value = "5">5</option>
 			<option value = "7">7</option>
@@ -69,8 +58,8 @@
 
 <div class = "container">
 <%-- 게시글이 있는 경우 --%>
-
 	<table class = "table">
+	<thead>
 		<tr>
 			<th colspan = "3">MVC 게시판 - list</th>
 			<th colspan = "2">
@@ -84,24 +73,22 @@
 			<th width = "17%"><div>날짜</div></th>
 			<th width = "11%"><div>조회수</div></th>
 		</tr>
+	</thead>
+	<tbody>
 	<c:set var ="num" value = "${listcount-(page-1)*10}"/>
-	<c:forEach var ="b" items="${boardlist}">
+	<c:forEach var ="b" items="${boardlist}">	
 		<tr>
 			<td>
-			<c:out value="${num }"/><%-- num 출력 --%>
-			<c:set var = "num" value ="${num-1}"/> <%-- num = num-1 의미함 --%>
+			<c:out value="${num }"/>
+			<c:set var = "num" value ="${num-1}"/> 
 			</td>
 			<td>
 				<div>
-					<%-- 답변글 제목앞에 여백 처리 부분
-						 BOARD_RE_LEV, BOARD_RE_LEV, BOARD_NUM,
-						 OBARD_SUBJECT, BOARD_NAME, BOARD_DATE,
-						 BOARD_READCOUNT : property 이름
-					 --%>
 					 <c:if test ="${b.BOARD_RE_LEV != 0}"> <!-- 답글인 경우 -->
 					 	<c:forEach var="a" begin="0" end ="${b.BOARD_RE_LEV*2}" step="1">
-					 	&nbsp;
+					 		&nbsp;
 					 	</c:forEach>
+					 	 <img src='images/AnswerLine.gif'>
 					 </c:if>
 					 <c:if test = "${b.BOARD_RE_LEV ==0}"> <!-- 원문인 경우 -->
 					 	&nbsp;
@@ -122,6 +109,7 @@
 			</td>
 		</tr>
 	</c:forEach>
+	</tbody>
 	</table>
 	</div>
 	<div class="center-block">
@@ -170,6 +158,7 @@
          </div>
       </div> 
 </c:if>
+ 
 <!--  게시글이 없는 경우 -->
 <c:if test ="${listcount == 0 }">
 	<font size =5>등록된 글이 없습니다.</font>
