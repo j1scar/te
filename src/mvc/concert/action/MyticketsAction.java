@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import mvc.board.db.BoardBean;
-import mvc.board.db.BoardDAO;
+import mvc.concert.db.ConcertDAO;
 import mvc.member.action.Action;
 import mvc.member.action.ActionForward;
 
