@@ -23,9 +23,9 @@
  <header id="header">
    <h1><a href="main.net">MFE <span>by</span></a></h1>
    <div>
- 	 <button type ="button" class = "btn btn-secondary"><span class = "glyphicon glyphicon-tasks" aria-hidden="true"></span></button>
+ 	 <button type ="button" class = "btn btn-secondary" data-toggle="modal" data-target="#filter_Modal"><span class = "glyphicon glyphicon-tasks" aria-hidden="true"></span></button>
      <!--  검색 텍스트 -->
- 	 <input class = "search_Text"type="text" id ="search_Text" placeholder = "search...">
+ 	 <form class = "search_Text" id = "searchForm"method = "post" action="searchword.co"><input class = "search_Text"type="text" name = "search_Text" id ="search_Text" placeholder = "search..."></form>
  	 <button id = "search_Button" type ="button" class = "btn btn-secondary"><span class = "glyphicon glyphicon-search" aria-hidden="true"></span></button>
 	 <c:if test="${!empty id}">
 		<c:choose>
@@ -52,6 +52,94 @@
     <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">고객센터 </a></li>
   </ul>
 </nav>
+<!--  필터 모달 -->
+         <div class="modal" id="filter_Modal">
+    		<div class="modal-dialog">
+     			 <div class="modal-content">
+      
+      			  <!-- Modal Header -->
+      			  <div class="modal-header">
+      			    <h4 class="modal-title">조건별 검색</h4>
+     			    <button type="button" class="close" data-dismiss="modal">&times;</button>
+      			  </div>
+        
+        		  <!-- Modal body -->
+       			  <div class="modal-body">
+        			  <div class="container uniform">
+        			  
+        				<form method = "post" action="searchcondition.co" id = "filter_form" >
+						 <fieldset>
+					    	<div class = "form-group">
+								<label for ="datepicker" class="modalBlack">날짜별</label>
+								<input type="date" id="datepicker">
+								
+							</div>
+							
+							<div class = "form-group">
+								<label for ="jido" class="modalBlack">지역별</label>
+								<table id="jido">
+									<tr>
+										<td><button value = "local1">서울</button></td>
+										<td><button value = "local2">경기</button></td>
+										<td><button value = "local3">인천</button></td>
+										<td><button value = "local4">강원</button></td>
+										<td><button value = "local5">대전</button></td>
+										<td><button value = "local6">세종</button></td>
+									</tr>
+									<tr>
+										<td><button value = "local7">충남</button></td>
+										<td><button value = "local8">충북</button></td>
+										<td><button value = "local9">부산</button></td>
+										<td><button value = "local10">울산</button></td>
+										<td><button value = "local11">경남</button></td>
+										<td><button value = "local12">경북</button></td>
+									</tr>
+									<tr>
+										<td><button value = "local13">대구</button></td>
+										<td><button value = "local14">광주</button></td>
+										<td><button value = "local15">전남</button></td>
+										<td><button value = "local16">전북</button></td>
+										<td><button value = "local17">제주</button></td>
+										<td><button value = "local18">전국</button></td>
+									</tr>
+								</table>
+							</div>
+							
+							<div class = "form-group">
+								<label for ="jenre" class="modalBlack">장르별</label>
+								<table id="jenre">
+									<tr>
+										<td><button value = "jenre1">발라드</button></td>
+										<td><button value = "jenre2">댄스</button></td>
+										<td><button value = "jenre3">랩/힙합</button></td>
+									</tr>
+									<tr>
+										<td><button value = "jenre4">R&B/Soul</button></td>
+										<td><button value = "jenre5">인디음악</button></td>
+										<td><button value = "jenre6">록/메탈</button></td>
+									</tr>
+									<tr>
+										<td><button value = "jenre7">트로트</button></td>
+										<td><button value = "jenre8">EDM</button></td>
+										<td><button value = "jenre9">전체 장르</button></td>
+									</tr>
+								</table>
+							</div>
+						</fieldset>
+						</form>
+						
+        			</div>
+    	    	</div>
+        
+        <!-- Modal footer -->
+       			 <div class="modal-footer">
+        			<button id = "filter_button" type="submit" class="btn btn-primary" >검색</button>
+         			<button type="button" class="btn btn-danger" data-dismiss="modal">취소</button>
+     			 </div>
+        
+    		  </div>
+    		</div>
+  		</div>
 
   <!--  로그인 모달 -->
          <div class="modal" id="login_Modal">
@@ -306,6 +394,32 @@ $(function() {
 		$('#search_Text').hide();
 	});
 	// 검색 이벤트 종료
+
+	 // 검색어 엔터시
+		$("#search_Text").keydown(function(key) {
+			if (key.keyCode == 13) { // 엔터치면
+				$("#searchForm").submit();
+				var search_Text = $("#search_Text").val();
+				location.href = "searchword.co"
+	 		}
+	 	});
+	
+	<%--
+	 $.datepicker.setDefaults({
+		dateFormat: 'yyyy-MM-dd',	// 2019-11-30 형식으로 지정
+		 toString(date, format) {
+	  		let day = ("0" + date.getDate()).slice(-2);	// 한자리수 앞에 0 삽입 ex) 01
+	   		let month = ("0" + (date.getMonth() + 1)).slice(-2);
+	   		let year = date.getFullYear();
+	  		 return `${year}-${month}-${day}`;
+	  		 },
+	   
+   	showOtherMonths: true, //빈 공간에 현재월의 앞뒤월의 날짜를 표시
+   	showMonthAfterYear: true //년도 먼저 나오고, 뒤에 월 표시    
+	}); 
+	$("#datepicker").datepicker();  
+	--%>
+	
 });
 </script>
 
