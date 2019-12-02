@@ -6,35 +6,12 @@
 <head>
 <meta charset="utf-8">
 <title>Search Result</title>
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="stylesheet" href="_1/assets/css/main.css" />
-<link rel="stylesheet" href="_2/assets/css/main.css" />
 
-<style>
-.search_details {
-	width: 30%;
-	display: inline-block
-}
-
-#calendar {
-	width: 300px;
-	height: 300px
-}
-
-.search_filter {
-	background: #20B2AA;
-	color: white;
-	border: 1px solid #20B2AA;
-	border-radius: 50px;
-	padding: 10px 25px;
-	margin: 10px;
-}
-</style>
 </head>
 
 <body class="subpage">
 	<!-- Header -->
-		 <jsp:include page="../mainActivity/navbar.jsp"/>
+	<jsp:include page="../mainActivity/navbar.jsp"/>
 	
 
 	<!-- Div -->

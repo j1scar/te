@@ -52,8 +52,15 @@ public class ConcertFrontController extends HttpServlet {
     	ActionForward forward = null;
     	Action action=null;
     	
-    	if(command.equals("/mytickets.net")) {
+    	if(command.equals("/mytickets.co")) {
     		action = new MyticketsAction();
+    		try {
+    			forward=action.execute(request, response);
+    		} catch(Exception e) {
+    			e.printStackTrace();
+    		}
+    	} else if(command.equals("/searchword.co")) {
+    		action = new SearchwordAction();
     		try {
     			forward=action.execute(request, response);
     		} catch(Exception e) {
