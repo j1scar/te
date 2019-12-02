@@ -10,7 +10,6 @@ create table member(
 	member_gender varchar2(2) not null,
 	primary key(member_id)
 );
-insert into member values('admin@mfe.com','1234','愿�由ъ옄','二쇱냼�뾾�쓬','�룿踰덊샇','�꽑�샇�옣瑜�','1');
-insert into member values('fddfddddd@mfe.com','1234','誘쇰��','二쇱냼�뾾�쓬','�룿踰덊샇','','1');
-insert into member values('fddfddddd@mfe.com','1234','誘쇰��','二쇱냼�뾾�쓬','�룿踰덊샇','','1');
+
+insert into member values('admin@mfe.com','1234','song','seoul','01063485549','rap','1');
 select * from member;
