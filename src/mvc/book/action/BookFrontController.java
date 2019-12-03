@@ -1,4 +1,4 @@
-package mvc.concert.action;
+package mvc.book.action;
 
 import java.io.IOException;
 
@@ -9,51 +9,39 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import mvc.member.action.Action;
-import mvc.member.action.ActionForward;
-import mvc.member.action.IdCheckAction;
+import mvc.book.action.Action;
+import mvc.book.action.ActionForward;
 
 /**
- * Servlet implementation class BoardFrontController
+ * Servlet implementation class BookFrontController
  */
-@WebServlet("*.co")
-public class ConcertFrontController extends HttpServlet {
+@WebServlet("*.bk")
+public class BookFrontController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
 	   
-    public ConcertFrontController() {
+    public BookFrontController() {
         super();
     }
     
     protected void doProcess(HttpServletRequest request,
     							HttpServletResponse response)
     	throws ServletException, IOException {
-    	/* 요청된 전체 URL 중에서 포트 번호 다음 부터 마지막 문자열까지 반환된다.
-    	 * 예) http://localhost:8088/JspProject/login.net인 경우
-    	 * "/JspProject/login.net" 반환됩니다.
-    	 * */
+   
     	String RequestURI = request.getRequestURI();
     	System.out.println("리퀘스트URI = " + RequestURI);
-    	
-    	// getContextPath() : 컨텍스트 경로가 반환됩니다.
-    	// contextPath는 "/JspProject"가 반환됩니다.
-    	
+    
     	String contextPath = request.getContextPath();
     	System.out.println("contextPath = " + contextPath);
-    	
-    	// RequestURI에서 컨텍스트 경로 길이 값의 인덱스 위치의 문자로부터
-    	// 마지막 위치 문자까지 추출합니다.
-    	// command는 "/login.net" 반환됩니다.
+
     	String command = RequestURI.substring(RequestURI.lastIndexOf("/"));
-    	//String command = RequestURI.substring(contextPath.length());
     	System.out.println("command = " + command);
     	
-    	//초기화
     	ActionForward forward = null;
     	Action action=null;
     	
-    	if(command.equals("/searchword.co")) {
-    		action = new SearchwordAction();
+    	if(command.equals("/BookList.bk")) {
+    		action = new BookListAction();
     		try {
     			forward=action.execute(request, response);
     		} catch(Exception e) {
