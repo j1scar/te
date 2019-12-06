@@ -52,21 +52,23 @@ public class ConcertFrontController extends HttpServlet {
     	ActionForward forward = null;
     	Action action=null;
     	
-    	if(command.equals("/mytickets.co")) {
-    		action = new MyticketsAction();
-    		try {
-    			forward=action.execute(request, response);
-    		} catch(Exception e) {
-    			e.printStackTrace();
-    		}
-    	} else if(command.equals("/searchword.co")) {
+    	if(command.equals("/searchword.co")) {
     		action = new SearchwordAction();
     		try {
     			forward=action.execute(request, response);
     		} catch(Exception e) {
     			e.printStackTrace();
     		}
-    	}
+    	} 
+    	
+    	if(command.equals("/ConcertDetailAction.co")) {
+    		action = new ConcertDetailAction();
+    		try {
+    			forward=action.execute(request, response);
+    		} catch(Exception e) {
+    			e.printStackTrace();
+    		}
+    	} 
     	
     	if(forward !=null) {
     		if(forward.isRedirect()) { //리다이렉트 된다.

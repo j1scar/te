@@ -10,15 +10,14 @@ $(function() {
 		var temp = "#updateMember_preference_"+item;
 		$(temp).attr('checked', 'checked');
 	})
+	
 	var gender = ${memberinfo.gender}
-	if(gender == 1) {
-		$('#male').attr('checked', 'checked');
+	if(gender=='1') {
+		$('#upmale').attr('checked', 'checked');
 	} else {
-		$('#female').attr('checked', 'checked');
+		$('#upfemale').attr('checked', 'checked');
 	}
-	$(".cancelbtn").click(function() {
-		history.back();
-	})
+	
 });
 </script>
 
@@ -64,16 +63,16 @@ $(function() {
 			<input type="checkbox" id="updateMember_preference_edm" name="updateMember_preference" value="edm">
 			<label for="updateMember_preference_edm">EDM</label>
 		</div>
-		<div class="u$(small)">
-			<div><label for="male">성별</label></div>
-			<input type="radio" id = "male" name="updateMember_gender" value="1">
-			<label for="male" >남</label>
-			<input type="radio" id = "female" name="updateMember_gender" value="2">
-			<label for="female">여</label>
-		</div>
+		<div><label for="male">성별</label></div>
 		
+		<input type="radio" id = "upmale" name="updateMember_gender" value="1">
+		<label for="upmale" >남</label>
+		<input type="radio" id = "upfemale" name="updateMember_gender" value="2">
+		<label for="upfemale">여</label>
+		
+		<br>
 		<button type="submit">수정</button>
-		<button class = "cancelbtn" type="button">돌아가기</button>
+		<button class = "cancelbtn" type="reset">취소</button>
 	  </fieldset>
 	 </form>
 	</div>

@@ -67,16 +67,12 @@
 
 					<!-- Nav tabs -->
 					<ul class="nav nav-tabs" role="tablist">
-						<li role="presentation" class="active"><a
-							href="#concert-info" aria-controls="concert-info" role="tab"
-							data-toggle="tab">공연 안내</a></li>
-						<li role="presentation"><a href="#profile"
-							aria-controls="profile" role="tab" data-toggle="tab">좌석안내</a></li>
-						<li role="presentation"><a href="#messages"
-							aria-controls="messages" role="tab" data-toggle="tab">공연장 정보</a>
+						<li role="presentation" class="active">
+						<a href="#concert-info" aria-controls="concert-info" role="tab" data-toggle="tab">공연 안내</a></li>
+						<li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">좌석안내</a></li>
+						<li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">공연장 정보</a>
 						</li>
-						<li role="presentation"><a href="#settings"
-							aria-controls="settings" role="tab" data-toggle="tab">예매유의사항</a>
+						<li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">예매유의사항</a>
 						</li>
 					</ul>
 					<!-- //Nav tabs end -->
